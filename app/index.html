@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+  </head>
+
+  <body ng-app="starterApp" layout="row" ng-controller="GameController as gc">
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-toolbar class="md-whiteframe-z1">
+      <h1>Games</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item ng-repeat="it in gc.games">
+          <md-button ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
+            <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
+            {{it.id}}: {{it.summary}}
+          </md-button>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>Scheduler</h1>
+      <span flex></span>
+      <md-button class="toolbar-right" ng-click="gc.exportCalendar()" aria-label="Export">
+        <md-icon>event</md-icon>
+      </md-button>
+      <md-button class="toolbar-right" aria-label="Print">
+        <md-icon print-div=".wbc-content">print</md-icon>
+      </md-button>
+    </md-toolbar>
+
+    <md-content class="wbc-content" flex id="content">
+      <link rel="stylesheet" href="assets/app.css"/>
+
+        <!-- <md-icon md-svg-icon="{{gc.selected.avatar}}" class="avatar"></md-icon> -->
+
+        <!-- <md-button class="contact" md-no-ink ng-click="gc.showContactOptions($event)" aria-label="Contact User">
+          <md-tooltip>Contact {{ gc.selected.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+        </md-button> -->
+
+        <div class="wbc-event-container" ng-repeat="n in [1,2,3,4,5,6,7,8,9]" >
+          <div class="wbc-grid-backdrop">
+            <div class="wbc-grid-column" event-start-hour="7"></div>
+            <div class="wbc-grid-column" event-start-hour="8"></div>
+            <div class="wbc-grid-column" event-start-hour="9"></div>
+            <div class="wbc-grid-column" event-start-hour="10"></div>
+            <div class="wbc-grid-column" event-start-hour="11"></div>
+            <div class="wbc-grid-column" event-start-hour="12"></div>
+            <div class="wbc-grid-column" event-start-hour="13"></div>
+            <div class="wbc-grid-column" event-start-hour="14"></div>
+            <div class="wbc-grid-column" event-start-hour="15"></div>
+            <div class="wbc-grid-column" event-start-hour="16"></div>
+            <div class="wbc-grid-column" event-start-hour="17"></div>
+            <div class="wbc-grid-column" event-start-hour="18"></div>
+            <div class="wbc-grid-column" event-start-hour="19"></div>
+            <div class="wbc-grid-column" event-start-hour="20"></div>
+            <div class="wbc-grid-column" event-start-hour="21"></div>
+            <div class="wbc-grid-column" event-start-hour="22"></div>
+            <div class="wbc-grid-column" event-start-hour="23"></div>
+            <div class="wbc-grid-column" event-start-hour="0"></div>
+            <div class="wbc-grid-column" event-start-hour="1"></div>
+            <div class="wbc-grid-column" event-start-hour="2"></div>
+            <div class="wbc-grid-column" event-start-hour="3"></div>
+          </div>
+          <h1 ng-if="gc.getEventsForDay(n).length>0">August {{n}} - {{gc.getDayOfWeek(n)}}</h1>
+          <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
+          event-start-hour="{{event.startDate.hour}}"
+          event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}"
+          event-duration="{{event.duration.hours}}"
+          event-class="{{event.properties.Class}}"
+          event-format="{{event.properties.Format}}"
+          event-location="{{event.location}}"
+          event-description="{{event.summary}}"
+          event-summary="{{event.summary}} {{event.location}}"
+          >
+            <p><b>{{event.properties.Code}}</b></p>
+          </div>
+        </div>
+
+
+      </md-content>
+
+  </div>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="./bower_components/ical.js/build/ical.js"></script>
+
+    <script src="./src/games/Games.js"></script>
+    <script src="./src/games/GameController.js"></script>
+    <script src="./src/games/GameService.js"></script>
+
+    <script type="text/javascript">
+
+          angular
+              .module('starterApp', ['ngMaterial', 'games'])
+              .config(function($mdThemingProvider, $mdIconProvider){
+
+                  $mdIconProvider
+                      .defaultIconSet("./assets/svg/avatars.svg", 128)
+                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+                      .icon("share"      , "./assets/svg/share.svg"       , 24)
+                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
+                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+
+                      $mdThemingProvider.theme('default')
+                          .primaryPalette('brown')
+                          .accentPalette('red');
+
+              });
+
+    </script>
+
+  </body>
+</html>
