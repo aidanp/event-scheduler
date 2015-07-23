@@ -155,8 +155,13 @@
        }
      }
 
-     function isDemo(game) {
-
+     function isFinal(game) {
+        var i;
+        for (i = 0; i < game.events.length; i++) {
+          if (game.events[i].summary === (game.summary + " F")) {
+            
+          }
+        }
      }
 
     /**
