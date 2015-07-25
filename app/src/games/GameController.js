@@ -17,9 +17,9 @@
   function GameController( gameService, $mdSidenav, $mdBottomSheet, $log, $q) {
     var self = this;
 
-    self.selectedList = [];
-    self.selected     = null;
-    self.games        = [ ];
+    self.selectedList = readSelected();
+    self.allGames = {};
+    self.games = [];
     self.toggleGame   = toggleGame;
     self.getEventsForDay = getEventsForDay;
     self.isSelected = isSelected;
@@ -28,19 +28,40 @@
     self.toggleList   = toggleGamesList;
     self.exportCalendar   = exportCalendar;
     self.showContactOptions  = showContactOptions;
-    self.isDemo = isDemo;
 
     // Load all registered games
 
     var result = gameService
           .loadAllGames();
     result.then( function( games ) {
-            self.games    = [].concat(games);
-          });
+          var i, game;
+          for ( i in games ) {
+            game = games[i];
+            self.allGames[game.id] = game;
+            self.games.push(game);
+        }
+    });
 
     // *********************************
     // Internal methods
     // *********************************
+
+    function readSelected() {
+      var existing;
+      try {
+        existing = JSON.parse(localStorage.getItem('persisted'));
+      } catch (e) {
+        console.log(e);
+      }
+      if ( !existing ) {
+        existing = [];
+      }
+      return existing;
+    }
+
+    function writeSelected() {
+      localStorage.setItem('persisted',JSON.stringify(self.selectedList));
+    }
 
     /**
      * First hide the bottomsheet IF visible, then
@@ -63,12 +84,14 @@
        //self.toggleList();
        var i;
        for ( i in self.selectedList ) {
-         if ( self.selectedList[i] === game ) {
+         if ( self.allGames[self.selectedList[i]] === game ) {
            self.selectedList.splice(i,1);
+           writeSelected();
            return;
          }
        }
-       self.selectedList.push(game);
+       self.selectedList.push(game.id);
+       writeSelected();
      }
 
      /**
@@ -78,9 +101,11 @@
         // collect all events for all days for selected games
         var events = [];
         var i, j;
+        var game;
         for ( i in self.selectedList ) {
-          for ( j in self.selectedList[i].events ) {
-            events.push(self.selectedList[i].events[j].component.jCal);
+          game = self.allGames[self.selectedList[i]];
+          for ( j in game.events ) {
+            events.push(game.events[j].component.jCal);
           }
         }
         if ( events.length > 0 ) {
@@ -118,7 +143,7 @@
       * Returns true if the specified game is in the selected list.
       */
      function isSelected(game) {
-       return ( self.selectedList.indexOf(game) !== - 1 );
+       return ( game ? self.selectedList.indexOf(game.id) !== - 1 : false );
      }
 
      /**
@@ -155,8 +180,13 @@
        }
      }
 
-     function isDemo(game) {
+     function isFinal(game) {
+        var i;
+        for (i = 0; i < game.events.length; i++) {
+          if (game.events[i].summary === (game.summary + " F")) {
 
+          }
+        }
      }
 
     /**
@@ -167,7 +197,7 @@
       var game, event;
       var result = [];
       for ( i in self.selectedList ) {
-          game = self.selectedList[i];
+          game = self.allGames[self.selectedList[i]];
           for ( j in game.events ) {
             event = game.events[j];
             if ( ( event.startDate.day === day && event.startDate.hour > 4 ) ||

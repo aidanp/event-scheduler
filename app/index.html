@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-    <title>Angular Material - Starter App</title>
+    <title>Event Scheduler</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,12 +21,12 @@
                 md-is-locked-open="$mdMedia('gt-sm')">
 
     <md-toolbar class="md-whiteframe-z1">
-      <h1>Games</h1>
+      <h1>Events</h1>
     </md-toolbar>
 
     <md-list>
       <md-list-item ng-repeat="it in gc.games">
-          <md-button ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
+          <md-button md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
             <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
             {{it.id}}: {{it.summary}}
           </md-button>
@@ -62,6 +62,8 @@
           <md-icon md-svg-icon="share"></md-icon>
         </md-button> -->
 
+        <h1 ng-if="gc.selectedList.length==0" class="empty-content">Please select one or more events from the sidebar.</h1>
+
         <div class="wbc-event-container" ng-repeat="n in [1,2,3,4,5,6,7,8,9]" >
           <div class="wbc-grid-backdrop">
             <div class="wbc-grid-column" event-start-hour="7"></div>
@@ -96,6 +98,7 @@
           event-location="{{event.location}}"
           event-description="{{event.summary}}"
           event-summary="{{event.summary}} {{event.location}}"
+          event-final="{{game.summary}}"
           >
             <p><b>{{event.properties.Code}}</b></p>
           </div>
