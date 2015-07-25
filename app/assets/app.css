@@ -252,7 +252,7 @@ div[event-start-hour='3'] {
 	margin-left: 100%;
 }
 
-.wbc-event-bar:before {
+.wbc-event-bar:after {
 	content: attr(event-start-hour-ampm);
 	position: absolute;
 	left: -33px;
@@ -267,48 +267,45 @@ div[event-start-hour='3'] {
 	background: white;
 }
 
-.wbc-event-bar:hover:after {
-  content: attr(event-description) " " "-" " " attr(event-location);
+.wbc-event-bar:hover:before {
+  content: attr(event-description) " [" attr(event-location) "]";
   position: absolute;
-  width: 320px;
-  line-height: 16px;
-  height: 16px;
-  top: 1px;
-  left: 1px;
+  line-height: 17px;
+  top: -1px;
+  left: -1px;
   border: 1px solid gray;
   background: rgb(255, 237, 143);
   border-radius: 4px;
-  padding: 2px;
-  white-space: nowrap;
+  padding: 4px 6px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  z-index: 2;
 }
 
 .wbc-event-container {
   xborder: 1px solid blue;
   position: relative;
   overflow: none;
-  z-index: 1;
+  margin-top: 60px;
 }
 
 .wbc-event-container h1 {
+  position: absolute;
+  top: -50px;
   margin: 0px;
   padding: 4px 0px;
   margin-top: 0px;
   padding-top: 16px;
-  background: white;
-  width: 100%;
   font-size: 22px;
+  z-index: 0;
 }
 
 .wbc-grid-backdrop {
   xborder: 1px solid green;
   position: absolute;
   left: 0px;
-	right: 0px;
+  right: 0px;
   top: 0px;
   bottom: 0px;
-  z-index: -1;
 }
 
 .wbc-grid-column {
