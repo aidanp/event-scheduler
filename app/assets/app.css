@@ -8,23 +8,15 @@ html, body {
 
 /* Toolbar area */
 
-.menu {
-  background-color: transparent;
-  border: none;
-  height: 38px;
-  margin: 16px;
-  width: 36px;
-}
-
 md-toolbar h1 {
   margin: auto;
   margin-left: 16px;
 }
 
 
-md-toolbar .toolbar-right {
-	padding: 0px;
-	margin: 0px;
+md-toolbar .md-button {
+	/* really dislike the md default */
+	min-width: 0px;
 }
 
 
