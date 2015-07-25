@@ -247,9 +247,9 @@ div[event-start-hour='3'] {
 .wbc-event-bar:after {
 	content: attr(event-start-hour-ampm);
 	position: absolute;
-	left: -33px;
+	left: -34px;
 	width: 30px;
-	top: 5px;
+	top: 4px;
 	height: 18px;
 	line-height: 18px;
 	vertical-align: center;
