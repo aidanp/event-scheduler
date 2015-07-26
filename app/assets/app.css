@@ -155,32 +155,32 @@ span.name {
 }
 
 .wbc-event-bar[event-round-number='2'] {
-  background-color: #FFFF00;
-
-}
-
-.wbc-event-bar[event-round-number='3'] {
   background-color: #EEEE00;
 
 }
 
-.wbc-event-bar[event-round-number='4'] {
+.wbc-event-bar[event-round-number='3'] {
   background-color: #EEDD00;
 
 }
 
-.wbc-event-bar[event-round-number='5'] {
+.wbc-event-bar[event-round-number='4'] {
   background-color: #DDDD00;
 
 }
 
-.wbc-event-bar[event-round-number='6'] {
+.wbc-event-bar[event-round-number='5'] {
   background-color: #CCCC00;
 
 }
 
-.wbc-event-bar[event-round-number='7'] {
+.wbc-event-bar[event-round-number='6'] {
   background-color: #BBBB00;
+
+}
+
+.wbc-event-bar[event-round-number='7'] {
+  background-color: #AABB00;
 
 }
 
