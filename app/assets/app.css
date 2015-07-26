@@ -160,34 +160,45 @@ span.name {
 }
 
 .wbc-event-bar[event-round-number='3'] {
-  background-color: #CCCC00;
+  background-color: #EEEE00;
 
 }
 
 .wbc-event-bar[event-round-number='4'] {
-  background-color: #AAAA00;
+  background-color: #EEDD00;
 
 }
 
 .wbc-event-bar[event-round-number='5'] {
-  background-color: red;
+  background-color: #DDDD00;
 
 }
 
 .wbc-event-bar[event-round-number='6'] {
-  background-color: red;
+  background-color: #CCCC00;
 
 }
 
 .wbc-event-bar[event-round-number='7'] {
-  background-color: #FFCC00;;
+  background-color: #BBBB00;
+
 }
 
 .wbc-event-bar[event-round-number='8'] {
+  background-color: #AAAA00;
+
+}
+
+
+.wbc-event-bar[event-round-number='9'] {
+  background-color: #FFCC00;;
+}
+
+.wbc-event-bar[event-round-number='10'] {
   background-color: #FFAA00;;
 }
 
-.wbc-event-bar[event-round-number='9'] {
+.wbc-event-bar[event-round-number='11'] {
   background-color: #FF7700;
 }
 
