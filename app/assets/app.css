@@ -150,11 +150,52 @@ span.name {
   text-overflow: ellipsis;
 }
 
+.wbc-event-bar[event-round-number='1'] {
+
+}
+
+.wbc-event-bar[event-round-number='2'] {
+  background-color: #FFFF00;
+
+}
+
+.wbc-event-bar[event-round-number='3'] {
+  background-color: #CCCC00;
+
+}
+
+.wbc-event-bar[event-round-number='4'] {
+  background-color: #AAAA00;
+
+}
+
+.wbc-event-bar[event-round-number='5'] {
+  background-color: red;
+
+}
+
+.wbc-event-bar[event-round-number='6'] {
+  background-color: red;
+
+}
+
+.wbc-event-bar[event-round-number='7'] {
+  background-color: #FFCC00;;
+}
+
+.wbc-event-bar[event-round-number='8'] {
+  background-color: #FFAA00;;
+}
+
+.wbc-event-bar[event-round-number='9'] {
+  background-color: #FF7700;
+}
+
 .wbc-event-bar[event-duration='0'] {
 	width: 2.5%;
 }
 .wbc-event-bar[event-duration-minute='30'] {
-  
+
   width: 2.5%;
 }
 .wbc-event-bar[event-duration='1'] {
@@ -248,6 +289,13 @@ div[event-start-hour='3'] {
 	margin-left: 100%;
 }
 
+
+div[event-start-minute='30'] {
+	position: relative;
+  left: 2.5%;
+}
+
+
 .wbc-event-bar:after {
 	content: attr(event-start-hour-ampm);
 	position: absolute;
@@ -315,7 +363,6 @@ div[event-start-hour='3'] {
 .wbc-content {
   xborder: 1px solid red;
   position: relative;
-  padding-bottom: 64px;
 }
 
 .empty-content {

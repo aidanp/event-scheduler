@@ -90,6 +90,7 @@
           </div>
           <h1 ng-if="gc.getEventsForDay(n).length>0">August {{n}} - {{gc.getDayOfWeek(n)}}</h1>
           <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
+          event-start-minute="{{event.startDate.minute}}"
           event-start-hour="{{event.startDate.hour}}"
           event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}"
           event-duration="{{event.duration.hours}}"
@@ -97,8 +98,10 @@
           event-format="{{event.properties.Format}}"
           event-location="{{event.location}}"
           event-description="{{event.summary}}"
-          event-summary="{{event.summary}} {{event.location}}"
           event-final="{{game.summary}}"
+          event-round="{{gc.extractRoundFromDescription(event.summary)}}"
+          event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
+          event-duration-last-30="{{event.duration.hours}} {{event.endDate.hour}}"
           >
             <p><b>{{event.properties.Code}}</b></p>
           </div>

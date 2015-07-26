@@ -28,6 +28,8 @@
     self.toggleList   = toggleGamesList;
     self.exportCalendar   = exportCalendar;
     self.showContactOptions  = showContactOptions;
+    self.extractRoundFromDescription  = extractRoundFromDescription;
+    self.extractRoundNumberFromRound = extractRoundNumberFromRound;
 
     // Load all registered games
 
@@ -92,6 +94,41 @@
        }
        self.selectedList.push(game.id);
        writeSelected();
+     }
+
+     function extractRoundFromDescription(description) {
+       if ( description ) {
+         var i = description.lastIndexOf('Demo');
+         if ( i != -1 ) {
+           return description.substring(i);
+         }
+         i = description.lastIndexOf(' ');
+         if ( i != -1 ) {
+           return description.substring(i+1);
+         }
+       }
+       return null;
+     }
+
+     function extractRoundNumberFromRound(round) {
+       var result = 1;
+       round = round.toLowerCase();
+       if ( round.indexOf('demo') != -1 ) {
+         return 0;
+       }
+       if ( round === 'qf' ) {
+         return 7;
+       }
+       if ( round === 'sf' ) {
+         return 8;
+       }
+       if ( round === 'f' ) {
+         return 9;
+       }
+       if (round.charAt(0) == 'r' && round.length>1) {
+         return round.charAt(1);
+       }
+       return 1;
      }
 
      /**
