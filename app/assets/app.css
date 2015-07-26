@@ -161,6 +161,10 @@ span.name {
 .wbc-event-bar[event-duration='0'] {
 	width: 2.5%;
 }
+.wbc-event-bar[event-duration-minute='30'] {
+  
+  width: 2.5%;
+}
 .wbc-event-bar[event-duration='1'] {
 	width: 5%;
 }
