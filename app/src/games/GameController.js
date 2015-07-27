@@ -168,6 +168,7 @@
       function undo() {
         self.selectedList = self.reservedList;
         self.reservedList = [];
+        writeSelected();
       }
 
      /**
