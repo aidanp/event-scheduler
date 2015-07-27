@@ -30,7 +30,7 @@
     self.showContactOptions  = showContactOptions;
     self.extractRoundFromDescription  = extractRoundFromDescription;
     self.extractRoundNumberFromRound = extractRoundNumberFromRound;
-
+    self.clearList = clearList;
     // Load all registered games
 
     var result = gameService
@@ -117,13 +117,13 @@
          return 0;
        }
        if ( round === 'qf' ) {
-         return 7;
+         return 9;
        }
        if ( round === 'sf' ) {
-         return 8;
+         return 10;
        }
        if ( round === 'f' ) {
-         return 9;
+         return 11;
        }
        if (round.charAt(0) == 'r' && round.length>1) {
          return round.charAt(1);
@@ -158,6 +158,11 @@
           console.log(url);
           window.open(url);
         }
+      }
+
+      function clearList(){
+        self.selectedList = [];
+        writeSelected();
       }
 
       function toBin(str){
