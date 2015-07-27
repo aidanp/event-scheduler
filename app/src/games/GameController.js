@@ -18,8 +18,10 @@
     var self = this;
 
     self.selectedList = readSelected();
+    self.reservedList = [];
     self.allGames = {};
     self.games = [];
+    self.undo = undo;
     self.toggleGame   = toggleGame;
     self.getEventsForDay = getEventsForDay;
     self.isSelected = isSelected;
@@ -65,10 +67,6 @@
       localStorage.setItem('persisted',JSON.stringify(self.selectedList));
     }
 
-    /**
-     * First hide the bottomsheet IF visible, then
-     * hide or Show the 'left' sideNav area
-     */
     function toggleGamesList() {
       var pending = $mdBottomSheet.hide() || $q.when(true);
 
@@ -93,6 +91,7 @@
          }
        }
        self.selectedList.push(game.id);
+       self.reservedList = [];
        writeSelected();
      }
 
@@ -161,24 +160,14 @@
       }
 
       function clearList(){
+        self.reservedList = self.selectedList;
         self.selectedList = [];
         writeSelected();
       }
 
-      function toBin(str){
-         var st,i,j,d;
-         var arr = [];
-         var len = str.length;
-         for (i = 1; i<=len; i++){
-                        //reverse so its like a stack
-          d = str.charCodeAt(len-i);
-          for (j = 0; j < 8; j++) {
-           arr.push(d%2);
-           d = Math.floor(d/2);
-          }
-         }
-                //reverse all bits again.
-         return arr.reverse().join("");
+      function undo() {
+        self.selectedList = self.reservedList;
+        self.reservedList = [];
       }
 
      /**
