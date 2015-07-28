@@ -7,6 +7,13 @@ CACHE MANIFEST
 
 assets/all-in-one.ics
 assets/app.css
+assets/fonts/MaterialIcons-Regular.ttf
+assets/fonts/MaterialIcons.css
+assets/fonts/Roboto-Bold.ttf
+assets/fonts/Roboto-Italic.ttf
+assets/fonts/Roboto-Medium.ttf
+assets/fonts/Roboto-Regular.ttf
+assets/fonts/Roboto.css
 bower_components/angular/angular-cookies.js
 bower_components/angular/angular.js
 bower_components/angular-animate/angular-animate.js
@@ -19,6 +26,9 @@ src/games/GameController.js
 src/games/Games.js
 src/games/GameService.js
 src/games/view/contactSheet.html
+
+
+
 
 NETWORK:
 # All URLs that start with the following lines
