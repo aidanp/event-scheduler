@@ -17,6 +17,7 @@
   function GameController( gameService, $mdSidenav, $mdBottomSheet, $log, $q) {
     var self = this;
 
+    self.onSwipeLeft = onSwipeLeft;
     self.selectedList = readSelected();
     self.reservedList = [];
     self.allGames = {};
