@@ -173,7 +173,7 @@
       }
 
       function onSwipeLeft(){
-        self.toggleList
+        self.toggleList();
       }
 
      /**
