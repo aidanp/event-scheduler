@@ -171,6 +171,10 @@
         writeSelected();
       }
 
+      function onSwipeLeft(){
+        self.toggleList
+      }
+
      /**
       * Returns true if the specified game is in the selected list.
       */

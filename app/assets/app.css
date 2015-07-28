@@ -37,6 +37,13 @@ md-list .md-button {
   }
 
 
+  md-sidenav {
+    overflow-y: scroll; /* has to be scroll, not auto */
+	  -webkit-overflow-scrolling: touch;
+  }
+
+
+
 /* Primary content area */
 
 #content {
