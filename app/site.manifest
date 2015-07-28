@@ -1,0 +1,35 @@
+CACHE MANIFEST
+# This is a comment.
+# Cache manifest version 0.0.1
+# If you change the version number in this comment,
+# the cache manifest is no longer byte-for-byte
+# identical.
+
+assets/all-in-one.ics
+assets/app.css
+bower_components/angular/angular-cookies.js
+bower_components/angular/angular.js
+bower_components/angular-animate/angular-animate.js
+bower_components/angular-aria/angular-aria.js
+bower_components/angular-material/angular-material.css
+bower_components/angular-material/angular-material.js
+bower_components/ical.js
+bower_components/ical.js/build/ical.js
+index.html
+src/games/GameController.js
+src/games/Games.js
+src/games/GameService.js
+src/games/view/contactSheet.html
+
+NETWORK:
+# All URLs that start with the following lines
+# are whitelisted.
+# http://example.com/examplepath/
+# http://www.example.org/otherexamplepath/
+
+# CACHE:
+# Additional items to cache.
+# demoimages/stonessmall.jpg
+
+# FALLBACK:
+# demoimages/currentImg.jpg images/stockImage.jpg
