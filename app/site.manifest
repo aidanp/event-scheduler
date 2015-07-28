@@ -14,6 +14,7 @@ assets/fonts/Roboto-Italic.ttf
 assets/fonts/Roboto-Medium.ttf
 assets/fonts/Roboto-Regular.ttf
 assets/fonts/Roboto.css
+assets/svg/menu.svg
 bower_components/angular/angular-cookies.js
 bower_components/angular/angular.js
 bower_components/angular-animate/angular-animate.js
