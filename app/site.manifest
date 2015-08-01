@@ -15,6 +15,11 @@ assets/fonts/Roboto-Medium.ttf
 assets/fonts/Roboto-Regular.ttf
 assets/fonts/Roboto.css
 assets/svg/menu.svg
+assets/icons/Icon-60@2x.png
+assets/icons/Icon-60@3x.png
+assets/icons/Icon-76.png
+assets/icons/Icon-76@2x.png
+assets/icons/Icon-Small@2x.png
 bower_components/angular/angular-cookies.js
 bower_components/angular/angular.js
 bower_components/angular-animate/angular-animate.js
@@ -27,7 +32,6 @@ src/games/GameController.js
 src/games/Games.js
 src/games/GameService.js
 src/games/view/contactSheet.html
-
 
 
 
