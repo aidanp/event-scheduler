@@ -27,6 +27,7 @@ md-list .md-button {
   font-weight: 500;
   text-align: left;
   width: 100%;
+  text-overflow: ellipsis;
 }
   md-list .md-button.selected {
     color: #03a9f4;
@@ -40,6 +41,8 @@ md-list .md-button {
   md-sidenav {
     overflow-y: scroll; /* has to be scroll, not auto */
 	  -webkit-overflow-scrolling: touch;
+    max-width: 75% !important;
+    min-width: inherit;
   }
 
 
@@ -234,6 +237,30 @@ span.name {
 .wbc-event-bar[event-duration='6'] {
 	width: 30%;
 }
+.wbc-event-bar[event-duration='7'] {
+	width: 35%;
+}
+.wbc-event-bar[event-duration='8'] {
+	width: 40%;
+}
+.wbc-event-bar[event-duration='9'] {
+	width: 45%;
+}
+.wbc-event-bar[event-duration='10'] {
+	width: 50%;
+}
+.wbc-event-bar[event-duration='11'] {
+	width: 65%;
+}
+.wbc-event-bar[event-duration='12'] {
+	width: 70%;
+}
+.wbc-event-bar[event-duration='13'] {
+	width: 75%;
+}
+.wbc-event-bar[event-duration='14'] {
+	width: 80%;
+}
 
 .wbc-event-bar[event-format="Demo"] {
 	background-color: rgb(152, 209, 143);
@@ -241,6 +268,14 @@ span.name {
 
 .wbc-event-bar[event-format=event-final] {
 	background-color: yellow;
+}
+
+.wbc-event-bar[event-is-junior=true] {
+	background-color: #FFD8FF;
+}
+
+.wbc-event-bar[event-is-game=false] {
+	background-color: #FFD3C3;
 }
 
 div[event-start-hour='7'] {
