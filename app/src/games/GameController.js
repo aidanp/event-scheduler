@@ -26,6 +26,8 @@
     self.toggleGame   = toggleGame;
     self.getEventsForDay = getEventsForDay;
     self.isSelected = isSelected;
+    self.isGame = isGame;
+    self.isJunior = isJunior;
     self.getAmPm = getAmPm;
     self.getDayOfWeek = getDayOfWeek;
     self.toggleList   = toggleGamesList;
@@ -37,7 +39,7 @@
     // Load all registered games
 
     var result = gameService
-          .loadAllGames();
+          .loadFromJson();
     result.then( function( games ) {
           var i, game;
           for ( i in games ) {
@@ -122,8 +124,11 @@
        if ( round === 'sf' ) {
          return 10;
        }
-       if ( round === 'f' ) {
+       if ( round === 'sf/f' ) {
          return 11;
+       }
+       if ( round === 'f' ) {
+         return 12;
        }
        if (round.charAt(0) == 'r' && round.length>1) {
          return round.charAt(1);
@@ -184,13 +189,28 @@
      }
 
      /**
+      * Returns true if the specified event is not a non-game event.
+      */
+     function isGame(event) {
+       return ( event.format !== 'Sales' && event.format !== 'Meeting'
+         && event.format !== 'OG' && event.format !== 'Sign-In' );
+     }
+
+     /**
+      * Returns true if the specified event is a juniors event.
+      */
+     function isJunior(event) {
+       return ( event.title.indexOf('JR') === 0 );
+     }
+
+     /**
       * Returns human readable string for 24-hour hour.
       */
      function getAmPm(hour) {
-       if ( hour == 0 ) {
+       if ( hour === 0 ) {
          return "12am";
        }
-       if ( hour == 12 ) {
+       if ( hour === 12 ) {
          return "12pm";
        }
        if ( hour > 12 ) {
@@ -201,19 +221,19 @@
 
      /**
       * Returns human readable day for day of month.
-      * NOTE: hardcoded for August 2015, sorry.
+      * NOTE: hardcoded for WBC 2016, sorry.
       */
      function getDayOfWeek(day) {
        switch (day) {
-          case 1: return 'Saturday';
-          case 2: return 'Sunday';
-          case 3: return 'Monday';
-          case 4: return 'Tuesday';
-          case 5: return 'Wednesday';
-          case 6: return 'Thursday';
-          case 7: return 'Friday';
-          case 8: return 'Saturday';
-          case 9: return 'Sunday';
+          case 23: return 'Saturday';
+          case 24: return 'Sunday';
+          case 25: return 'Monday';
+          case 26: return 'Tuesday';
+          case 27: return 'Wednesday';
+          case 28: return 'Thursday';
+          case 29: return 'Friday';
+          case 30: return 'Saturday';
+          case 31: return 'Sunday';
        }
      }
 
@@ -234,14 +254,16 @@
       var game, event;
       var result = [];
       for ( i in self.selectedList ) {
-          game = self.allGames[self.selectedList[i]];
-          for ( j in game.events ) {
-            event = game.events[j];
-            if ( ( event.startDate.day === day && event.startDate.hour > 4 ) ||
-              ( event.startDate.hour < 5 && event.startDate.day - 1 == day ) ) {
-              result.push(event);
+        game = self.allGames[self.selectedList[i]];
+        if ( game && game.events ) {
+            for ( j in game.events ) {
+              event = game.events[j];
+              if ( ( event.startDate.day === day && event.startDate.hour > 4 ) ||
+                ( event.startDate.hour < 5 && event.startDate.day - 1 == day ) ) {
+                result.push(event);
+              }
             }
-          }
+        }
       }
       result.sort(function(a, b) {
           return a.startDate.day*24 + a.startDate.hour - b.startDate.day*24 - b.startDate.hour;
