@@ -115,7 +115,6 @@
      function extractRoundNumberFromRound(round) {
        var result = 1;
        round = round.toLowerCase();
-       console.log(round);
        if ( round.indexOf('demo') != -1 ) {
          return 0;
        }
