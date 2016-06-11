@@ -271,6 +271,23 @@
                 }
               }
 
+              // handling for duration of continuous events
+              if (item.continuous === 'Y') {
+                var digit = item.summary[item.summary.length-1];
+                digit = parseInt(digit);
+                // if is digit
+                if (!isNaN(digit)) {
+                  item.duration = item.duration * digit;
+                } else {
+                  item.duration = item.duration * 2;
+                }
+              }
+
+              // handling for juniors events: should all be two hours
+              if (item.summary.indexOf('JR') === 0) {
+                item.duration = 2;
+              }
+
               item.startDate = new Date(item.date);
               item.startDate.setHours(item.time);
               item.startDate.day = item.startDate.getDate();

@@ -115,6 +115,7 @@
      function extractRoundNumberFromRound(round) {
        var result = 1;
        round = round.toLowerCase();
+       console.log(round);
        if ( round.indexOf('demo') != -1 ) {
          return 0;
        }
@@ -127,7 +128,7 @@
        if ( round === 'sf/f' ) {
          return 11;
        }
-       if ( round === 'f' ) {
+       if ( round === 'f' || round === 'final' ) {
          return 12;
        }
        if (round.charAt(0) == 'r' && round.length>1) {
