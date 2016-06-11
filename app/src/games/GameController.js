@@ -124,7 +124,7 @@
        if ( round === 'sf' ) {
          return 10;
        }
-       if ( round === 'sf/f' ) {
+       if ( round === 'sf/f' || round === 'qf/sf/f' ) {
          return 11;
        }
        if ( round === 'f' || round === 'final' ) {
