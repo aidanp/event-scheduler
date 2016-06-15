@@ -212,6 +212,10 @@ span.name {
   background-color: #FF7700;
 }
 
+.wbc-event-bar[event-round-number='12'] {
+  background-color: #FF7700;
+}
+
 .wbc-event-bar[event-duration='0'] {
 	width: 2.5%;
 }

@@ -124,10 +124,10 @@
        if ( round === 'sf' ) {
          return 10;
        }
-       if ( round === 'sf/f' ) {
+       if ( round === 'sf/f' || round === 'qf/sf/f' ) {
          return 11;
        }
-       if ( round === 'f' ) {
+       if ( round === 'f' || round === 'final' ) {
          return 12;
        }
        if (round.charAt(0) == 'r' && round.length>1) {
