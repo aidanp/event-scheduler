@@ -22,14 +22,14 @@ md-toolbar .md-button {
 
 /* Sidenav area */
 
-md-list .md-button {
+md-list md-list-item {
   color: inherit;
-  font-weight: 500;
   text-align: left;
   width: 100%;
+  font-size: 110%;
   text-overflow: ellipsis;
 }
-  md-list .md-button.selected {
+  md-list .selected {
     color: #03a9f4;
   }
 

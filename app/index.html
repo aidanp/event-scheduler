@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html manifest="site.manifest" lang="en">
-<!-- <html lang="en"> -->
+<!-- <html manifest="site.manifest" lang="en"> -->
+<html lang="en">
   <head>
     <title>Event Scheduler</title>
 
@@ -41,16 +41,14 @@
 
     </md-toolbar>
 
+    <md-content flex>
     <md-list>
-      <md-list-item ng-repeat="it in gc.games">
-          <md-button md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
+      <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
             <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
             {{it.id}}<span ng-if="it.summary">: {{it.summary}}</span>
-          </md-button>
-
       </md-list-item>
     </md-list>
-
+    </md-content>
   </md-sidenav>
 
 
