@@ -44,6 +44,10 @@ md-list md-list-item {
     max-width: 75% !important;
     min-width: inherit;
   }
+  md-sidenav.md-locked-open {
+    /* workaround for extra scrollbar on windows */
+    overflow: hidden;
+  }
 
 
 
