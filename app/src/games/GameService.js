@@ -249,7 +249,7 @@
     return {
       loadFromJson: function() {
         return $q(function(resolve, reject) {
-        $http.get('assets/2016.js').
+        $http.get('assets/2017.json').
           success(function(data, status, headers, config) {
             var item;
             var index;
