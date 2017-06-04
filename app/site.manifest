@@ -5,7 +5,7 @@ CACHE MANIFEST
 # the cache manifest is no longer byte-for-byte
 # identical.
 
-assets/2016.js
+assets/2017.json
 assets/app.css
 assets/fonts/MaterialIcons-Regular.ttf
 assets/fonts/MaterialIcons.css
