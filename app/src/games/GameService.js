@@ -61,6 +61,14 @@
     }
   }
 
+  function convertToLowercase(item) {
+    var result = {};
+    for ( var i in item ) {
+      result[i.toLowerCase()] = item[i];
+    }
+    return result;
+  }
+
 //
 // Churchill 	 CHL
 // Panzerblitz 	 PZB
@@ -93,6 +101,7 @@
             var codeToEvents = {};
             for ( var i in data ) {
               item = data[i];
+              item = convertToLowercase(item);
               item.summary = item.event;
               item.title = item.event;
               // if ( item.format !== 'Sales' && item.format !== 'Meeting'
@@ -105,11 +114,10 @@
                 if (index !== -1) {
                   item.title = item.event.substring(0,index);
                   item.round = item.event.substring(index);
-                  console.log(item.title, '|', item.round);
+                  //console.log(item.title, '|', item.round);
                 } else {
                   console.log('Could not parse event:', item.event);
                 }
-              // }
 
               item.startDate = new Date(item.date);
               item.startDate.setHours(item.time);
