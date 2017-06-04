@@ -49,170 +49,6 @@
     }
     */
 
-    var codeToTitle =
-    {
-    "7WS":"7 Wonders",
-    "775":"1775",
-    "8XX":"18XX",
-    "989":"1989",
-    "ACQ":"Acquire",
-    "ACV":"Advanced Civilization",
-    "AFK":"Afrika Korps",
-    "AGR":"Agricola",
-    "ABN":"Air Baron",
-    "ALH":"Alhambra",
-    "AMR":"Amun Re",
-    "A_S":"Arctic Scavengers",
-    "ACS":"Atlantic Storm",
-    "ATS":"Attack Sub",
-    "AUC":"Auction",
-    "AUT":"Automobile",
-    "A&A":"Axis & Allies",
-    "B17":"B17",
-    "BAR":"Battles of Am Revolution",
-    "BWD":"Bitter Woods",
-    "BRS":"Brass",
-    "BKN":"Breakout Normandy",
-    "BRI":"Britannia",
-    "CNS":"Can't Stop",
-    "CAR":"Carcassonne",
-    "COB":"Castles of Burgundy",
-    "CMK":"Castles Mad King Ludwig",
-    "C&K":"Catan: Cities & Knights",
-    "CMS":"Circus Maximus",
-    "CBC":"Combat Commander",
-    "CCA":"C & C Ancients",
-    "CCN":"C & C Napoleonics",
-    "CNC":"Concordia",
-    "CQP":"Conquest of Paradise",
-    "DIP":"Diplomacy",
-    "DSP":"Dominant Species",
-    "DOM":"Dominion",
-    "DUN":"Dune",
-    "EGZ":"Egizia",
-    "ELF":"Elfenroads",
-    "ELG":"El Grande",
-    "EPB":"Empire Builder",
-    "EOS":"Empire of the Sun",
-    "EIS":"Enemy In Sight",
-    "E&T":"Euphrat & Tigris",
-    "EVL":"Evolution",
-    "FI5":"Facts In Five",
-    "FIL":"Fire In the Lake",
-    "5TR":"Five Tribes",
-    "FBS":"Football Strategy",
-    "FTP":"For the People",
-    "FDE":"Formula De",
-    "FMR":"Formula Motor Racing",
-    "GBG":"Gettysburg",
-    "HRC":"Hannibal",
-    "HIS":"Here I Stand",
-    "HWD":"History of the World",
-    "ING":"Ingenious",
-    "IVH":"Ivanhoe",
-    "KOT":"King of Tokyo",
-    "KRM":"Kremlin",
-    "KPR":"Kaiser's Pirates",
-    "LID":"Liar's Dice",
-    "LWD":"Lords of Waterdeep",
-    "LST":"Lost Cities",
-    "MMS":"March Madness",
-    "M44":"Memoir '44",
-    "MOV":"Merchant of Venus",
-    "MMW":"Mr Madison's War",
-    "NW5":"Napoleonic Wars",
-    "NVG":"Navegador",
-    "POG":"Paths of Glory",
-    "PRC":"Pirate's Cove",
-    "PGD":"Power Grid",
-    "POF":"Princes of Florence",
-    "PRO":"Puerto Rico",
-    "RA!":"Ra!",
-    "RDG":"Ra; The Dice Game",
-    "RBN":"Rail Baron",
-    "RRY":"Robo Rally",
-    "TRC":"Russian Campaign",
-    "RRR":"Russian Railroads",
-    "SPG":"Saint Petersburg",
-    "SJN":"San Juan",
-    "SFR":"Santa Fe Rails",
-    "SKG":"Sekigahara",
-    "SET":"Settlers of Catan",
-    "SLS":"Slapshot",
-    "SCT":"Speed Circuit",
-    "SPD":"Splendor",
-    "SQL":"Squad Leader",
-    "SWM":"Star Wars Miniatures",
-    "QGB":"Star Wars: Queen's Gambit",
-    "SCC":"Stockcar Championship Racing",
-    "STA":"Stone Age",
-    "SSB":"Superstar Baseball",
-    "AGE":"Through the Ages",
-    "T_G":"Tin Goose",
-    "T&T":"Thurn & Taxis",
-    "TTR":"Ticket To Ride",
-    "TTN":"Titan",
-    "TT2":"Titan Two",
-    "TTA":"Titan: The Arena",
-    "TWS":"Twilight Struggle",
-    "TZK":"Tzolkin'",
-    "UPF":"Up Front",
-    "VSD":"Vegas Showdown",
-    "VIE":"Victory in Europe",
-    "VIP":"Victory in the Pacific",
-    "VGQ":"Virgin Queen",
-    "WAS":"War At Sea",
-    "WOR":"War of the Ring",
-    "WWR":"Washington's War",
-    "WAT":"Waterloo",
-    "WLL":"Wellington",
-    "WNW":"Wilderness War",
-    "WSM":"Wooden Ships & Iron Men",
-    "WAW":"World At War",
-    "YSP":"Yspahan",
-    "7WD":"7 Wonders Duel",
-    "AOA":"Ace of Aces",
-    "ADV":"Adel Verpflichtet",
-    "AOR":"Age of Renaissance",
-    "BCY":"Battle Cry",
-    "BAT":"Battleline",
-    "ELC":"Elchfest",
-    "GCA":"Great Campaigns ACW",
-    "HOS":"Hammer of the Scots",
-    "IOV":"Innovation",
-    "LHV":"Le Havre",
-    "LLM":"Leaping Lemmings",
-    "MED":"Medici",
-    "MMA":"Monsters Menace America",
-    "NVW":"Naval War",
-    "PGF":"Pro Golf",
-    "RFG":"Race For the Galaxy",
-    "RGD":"Roll For the Galaxy",
-    "SMW":"Small World",
-    "TAM":"Trans America",
-    "UNP":"Union Pacific",
-    "WPS":"Win, Place & Show",
-    "CHL":"Churchill",
-    "PZB":"Panzerblitz",
-    "LBY":"Labyrinth",
-    "GXY":"Galaxy",
-    "PDT":"Paydirt",
-    "SGM":"Sergeants Miniatures Game",
-    "MGW":"Mage Wars",
-    "MAN":"Manoeuvre",
-    "JUC":"Julius Caesar",
-    "TIM":"Tigers in the Mist",
-    "ROR":"Republic of Rome",
-    "LAS":"Las Vegas",
-    "GXT":"Galaxy Trucker",
-    "COH":"Conflict of Heroes",
-  };
-
-  var titleToCode = {};
-  for ( var code in codeToTitle ) {
-    titleToCode[normalize(codeToTitle[code])] = code;
-  }
-
   function getCodeForTitle(s) {
     return titleToCode[normalize(s)];
   }
@@ -259,17 +95,21 @@
               item = data[i];
               item.summary = item.event;
               item.title = item.event;
-              if ( item.format !== 'Sales' && item.format !== 'Meeting'
-                && item.format !== 'OG' && item.format !== 'Sign-In' ) {
+              // if ( item.format !== 'Sales' && item.format !== 'Meeting'
+              //   && item.format !== 'OG' && item.format !== 'Sign-In' ) {
                 // split title from round
-                index = item.event.lastIndexOf(' ');
+                index = item.event.lastIndexOf('Demo');
+                if (index === -1) {
+                  index = item.event.lastIndexOf(' ');
+                }
                 if (index !== -1) {
                   item.title = item.event.substring(0,index);
                   item.round = item.event.substring(index);
+                  console.log(item.title, '|', item.round);
                 } else {
                   console.log('Could not parse event:', item.event);
                 }
-              }
+              // }
 
               item.startDate = new Date(item.date);
               item.startDate.setHours(item.time);
@@ -283,7 +123,8 @@
               item.endDate.minute = item.endDate.getMinutes();
 
               if ( item.code === 'junior' ) {
-                item.code = 'JR';
+                // special handling for JR
+                item.code = 'JRS';
               }
               events = codeToEvents[item.code];
               if (!events) {
@@ -301,6 +142,10 @@
               };
               if ( game.events[0].title !== game.id ) {
                 game.summary = codeToEvents[i][0].title;
+                if ( i === 'JRS' ) {
+                  // special handling for JR
+                  game.summary = 'Juniors Events';
+                }
               }
               games.push(game);
             }
