@@ -66,7 +66,6 @@
     for ( var i in item ) {
       result[i.toLowerCase()] = item[i];
     }
-    console.log(item, result);
     return result;
   }
 
