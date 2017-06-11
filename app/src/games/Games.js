@@ -40,12 +40,16 @@ angular
                 iframe = document.getElementById('print-frame');
                 write(elementToPrint.innerHTML);
 
-                if (window.navigator.userAgent.indexOf ("MSIE") > 0) {
-                    iframe.contentWindow.document.execCommand('print', false, null);
-                } else {
-                    iframe.contentWindow.focus();
-                    iframe.contentWindow.print();
-                }
+                setTimeout(function() {
+                  if (window.navigator.userAgent.indexOf ("MSIE") > 0) {
+                      iframe.contentWindow.document.execCommand('print', false, null);
+                  } else {
+                      iframe.contentWindow.focus();
+                      setTimeout(function() {
+                        iframe.contentWindow.print();
+                      }, 100);
+                  }
+                }, 100);
             });
         }
     };
