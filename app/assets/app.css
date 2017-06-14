@@ -355,10 +355,31 @@ div[event-start-hour='3'] {
 }
 
 
+div[event-start-minute='15'] {
+	position: relative;
+  left: 1.5%;
+}
+div[event-start-minute='19'] {
+	position: relative;
+  left: 2%;
+}
+div[event-start-minute='20'] {
+	position: relative;
+  left: 2%;
+}
 div[event-start-minute='30'] {
 	position: relative;
   left: 2.5%;
 }
+div[event-start-minute='40'] {
+	position: relative;
+  left: 3%;
+}
+div[event-start-minute='45'] {
+	position: relative;
+  left: 3.5%;
+}
+
 
 
 .wbc-event-bar:after {
