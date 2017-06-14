@@ -22,12 +22,12 @@
     <link rel="apple-touch-icon" sizes="58x58" href="assets/icons/Icon-Small@2x.png" />
   </head>
 
-  <body ng-app="starterApp" layout="row" ng-controller="GameController as gc">
+  <body ng-app="starterApp" layout="row" ng-controller="GameController as gc" ng-cloak>
 
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
                 md-component-id="left"
                 md-swipe-left="gc.onSwipeLeft()"
-                md-is-locked-open="$mdMedia('gt-sm')">
+                md-is-locked-open="$mdMedia('gt-xs')">
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <h1>Events</h1>
@@ -41,16 +41,14 @@
 
     </md-toolbar>
 
+    <md-content flex>
     <md-list>
-      <md-list-item ng-repeat="it in gc.games">
-          <md-button md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
+      <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
             <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
             {{it.id}}<span ng-if="it.summary">: {{it.summary}}</span>
-          </md-button>
-
       </md-list-item>
     </md-list>
-
+    </md-content>
   </md-sidenav>
 
 
