@@ -36,6 +36,7 @@
     self.extractRoundFromDescription  = extractRoundFromDescription;
     self.extractRoundNumberFromRound = extractRoundNumberFromRound;
     self.clearList = clearList;
+    self.openEvent = openEvent;
     // Load all registered games
 
     var result = gameService
@@ -162,6 +163,14 @@
           var url = "data:text/calendar;charset=utf-8,"+encodeURIComponent(ical);
           console.log(url);
           window.open(url);
+        }
+      }
+
+      function openEvent($event, event) {
+        // confusingly named event and $event
+        if ($event.detail > 1) {
+          // open event preview on double-click
+          window.open('http://www.boardgamers.org/wbc17/previews/'+event.code+'.html');
         }
       }
 

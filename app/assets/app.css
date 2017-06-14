@@ -216,24 +216,32 @@ span.name {
   background-color: #FF7700;
 }
 
-.wbc-event-bar[event-duration='0'] {
+.wbc-event-bar {
 	width: 2.5%;
-}
-.wbc-event-bar[event-duration-minute='30'] {
-
-  width: 2.5%;
 }
 .wbc-event-bar[event-duration='1'] {
 	width: 5%;
 }
+.wbc-event-bar[event-duration='1.5'] {
+	width: 7.5%;
+}
 .wbc-event-bar[event-duration='2'] {
 	width: 10%;
+}
+.wbc-event-bar[event-duration='2.5'] {
+	width: 12.5%;
 }
 .wbc-event-bar[event-duration='3'] {
 	width: 15%;
 }
+.wbc-event-bar[event-duration='3.5'] {
+	width: 17.5%;
+}
 .wbc-event-bar[event-duration='4'] {
 	width: 20%;
+}
+.wbc-event-bar[event-duration='4.5'] {
+	width: 22.5%;
 }
 .wbc-event-bar[event-duration='5'] {
 	width: 25%;
@@ -347,10 +355,31 @@ div[event-start-hour='3'] {
 }
 
 
+div[event-start-minute='15'] {
+	position: relative;
+  left: 1.5%;
+}
+div[event-start-minute='19'] {
+	position: relative;
+  left: 2%;
+}
+div[event-start-minute='20'] {
+	position: relative;
+  left: 2%;
+}
 div[event-start-minute='30'] {
 	position: relative;
   left: 2.5%;
 }
+div[event-start-minute='40'] {
+	position: relative;
+  left: 3%;
+}
+div[event-start-minute='45'] {
+	position: relative;
+  left: 3.5%;
+}
+
 
 
 .wbc-event-bar:after {
