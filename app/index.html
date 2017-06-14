@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- <html manifest="site.manifest" lang="en"> -->
-<html lang="en">
+<html manifest="site.manifest?20170614" lang="en">
+<!-- <html lang="en"> -->
   <head>
     <title>Event Scheduler</title>
 
@@ -112,7 +112,6 @@
           <h1 ng-if="gc.getEventsForDay(n).length>0">July {{n}} - {{gc.getDayOfWeek(n)}}</h1>
           <div class="wbc-event-bar"
           ng-repeat="event in gc.getEventsForDay(n)"
-          ng-init="$log('test')"
           event-start-minute="{{event.startDate.minute}}"
           event-start-hour="{{event.startDate.hour}}"
           event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}"
