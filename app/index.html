@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html manifest="site.manifest" lang="en">
-<!-- <html lang="en"> -->
+<!-- <html manifest="site.manifest" lang="en"> -->
+<html lang="en">
   <head>
     <title>Event Scheduler</title>
 
@@ -110,7 +110,8 @@
           </div>
           <div ng-if="gc.getEventsForDay(n).length>0" style="page-break-after: always">
           <h1 ng-if="gc.getEventsForDay(n).length>0">July {{n}} - {{gc.getDayOfWeek(n)}}</h1>
-          <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
+          <div class="wbc-event-bar"
+          ng-repeat="event in gc.getEventsForDay(n)"
           event-start-minute="{{event.startDate.minute}}"
           event-start-hour="{{event.startDate.hour}}"
           event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}"
@@ -125,6 +126,7 @@
           event-round="{{gc.extractRoundFromDescription(event.summary)}}"
           event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
           event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
+          ng-mouseup="gc.openEvent($event,event)"
           >
             <p><b>{{event.code}} {{event.code=='JRS'?event.summary:''}}</b></p>
           </div>
