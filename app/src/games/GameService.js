@@ -119,8 +119,10 @@
                   console.log('Could not parse event:', item.event);
                 }
 
+              var hours = Math.trunc(item.time);
+              var minutes = (item.time - hours) * 60;
               item.startDate = new Date(item.date);
-              item.startDate.setHours(item.time);
+              item.startDate.setHours(hours, minutes);
               item.startDate.day = item.startDate.getDate();
               item.startDate.hour = item.startDate.getHours();
               item.startDate.minute = item.startDate.getMinutes();
