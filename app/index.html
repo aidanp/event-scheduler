@@ -32,7 +32,10 @@
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <h1>Events</h1>
           <span flex></span>
-          <md-button ng-if="gc.selectedList.length>0" class="toolbar-right" ng-click="gc.clearList()" aria-label="Clear">
+          <md-button ng-if="gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-click="gc.selectAll()" aria-label="Select All">
+            <md-icon class="material-icons">select_all</md-icon>
+          </md-button>
+          <md-button ng-if="gc.selectedList.length>0 && gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-click="gc.clearList()" aria-label="Clear">
             <md-icon class="material-icons">backspace</md-icon>
           </md-button>
           <md-button ng-if="gc.reservedList.length>0" class="toolbar-right" ng-click="gc.undo()" aria-label="Undo">

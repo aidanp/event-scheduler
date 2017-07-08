@@ -35,8 +35,10 @@
     self.showContactOptions  = showContactOptions;
     self.extractRoundFromDescription  = extractRoundFromDescription;
     self.extractRoundNumberFromRound = extractRoundNumberFromRound;
+    self.selectAll = selectAll;
     self.clearList = clearList;
     self.openEvent = openEvent;
+    self.gameCount = 0;
     // Load all registered games
 
     var result = gameService
@@ -44,6 +46,7 @@
     result.then( function( games ) {
           var i, game;
           for ( i in games ) {
+            self.gameCount = self.gameCount+1;
             game = games[i];
             self.allGames[game.id] = game;
             self.games.push(game);
@@ -172,6 +175,16 @@
           // open event preview on double-click
           window.open('http://www.boardgamers.org/wbc17/previews/'+event.code+'.html');
         }
+      }
+
+      function selectAll(){
+        self.reservedList = self.selectedList;
+        self.selectedList = [];
+        for (var i in self.allGames) {
+          self.selectedList.push(self.allGames[i].id);
+        }
+        writeSelected();
+        console.log(self.selectedList.length, self.allGames.length, Object.keys(self.allGames).length);
       }
 
       function clearList(){
