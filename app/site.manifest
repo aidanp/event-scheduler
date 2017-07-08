@@ -1,6 +1,6 @@
 CACHE MANIFEST
 # This is a comment.
-# Cache manifest version 1.4.3.
+# Cache manifest version 1.4.4.
 # If you change the version number in this comment,
 # the cache manifest is no longer byte-for-byte
 # identical.
@@ -46,3 +46,4 @@ NETWORK:
 
 # FALLBACK:
 # demoimages/currentImg.jpg images/stockImage.jpg
+#
