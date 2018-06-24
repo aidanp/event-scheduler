@@ -243,19 +243,19 @@
 
      /**
       * Returns human readable day for day of month.
-      * NOTE: hardcoded for WBC 2017, sorry.
+      * NOTE: hardcoded for WBC 2018, sorry.
       */
      function getDayOfWeek(day) {
        switch (day) {
-          case 22: return 'Saturday';
-          case 23: return 'Sunday';
-          case 24: return 'Monday';
-          case 25: return 'Tuesday';
-          case 26: return 'Wednesday';
-          case 27: return 'Thursday';
-          case 28: return 'Friday';
-          case 29: return 'Saturday';
-          case 30: return 'Sunday';
+          case 21: return 'Saturday';
+          case 22: return 'Sunday';
+          case 23: return 'Monday';
+          case 24: return 'Tuesday';
+          case 25: return 'Wednesday';
+          case 26: return 'Thursday';
+          case 27: return 'Friday';
+          case 28: return 'Saturday';
+          case 29: return 'Sunday';
        }
      }
 

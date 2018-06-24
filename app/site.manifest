@@ -1,11 +1,12 @@
 CACHE MANIFEST
 # This is a comment.
-# Cache manifest version 1.4.6.
+# Cache manifest version 1.5.2.
 # If you change the version number in this comment,
 # the cache manifest is no longer byte-for-byte
 # identical.
 
-assets/2017.json
+index.html
+assets/2018.json
 assets/app.css
 assets/fonts/MaterialIcons-Regular.ttf
 assets/fonts/MaterialIcons.css
@@ -26,7 +27,6 @@ bower_components/angular-aria/angular-aria.js
 bower_components/angular-material/angular-material.css
 bower_components/angular-material/angular-material.js
 bower_components/ical.js/build/ical.js
-index.html
 src/games/GameController.js
 src/games/Games.js
 src/games/GameService.js

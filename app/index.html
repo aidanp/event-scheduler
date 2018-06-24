@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20170614" lang="en">
+<html xxx-manifest="site.manifest?20180619" lang="en">
 <!-- <html lang="en"> -->
   <head>
     <title>Event Scheduler</title>
@@ -48,7 +48,7 @@
     <md-list>
       <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
             <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
-            {{it.id}}<span ng-if="it.summary">: {{it.summary}}</span>
+            {{it.id}}<span ng-if="it.summary" style="white-space:nowrap">: {{it.summary}}</span>
       </md-list-item>
     </md-list>
     </md-content>
@@ -61,7 +61,7 @@
       <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
-      <h1>Scheduler 2017</h1>
+      <h1>Scheduler 2018</h1>
       <span flex></span>
 <!--
       <md-button class="toolbar-right" ng-click="gc.exportCalendar()" aria-label="Export">
