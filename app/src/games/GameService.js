@@ -132,7 +132,7 @@
               item.endDate.hour = item.endDate.getHours();
               item.endDate.minute = item.endDate.getMinutes();
 
-              if ( item.code === 'junior' ) {
+              if ( item.code === 'Juniors' ) {
                 // special handling for JR
                 item.code = 'JRS';
               }

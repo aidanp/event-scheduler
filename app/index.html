@@ -123,13 +123,14 @@
           event-description="{{event.summary}}"
           event-is-game="{{gc.isGame(event)}}"
           event-is-junior="{{gc.isJunior(event)}}"
+          event-is-demo="{{gc.isDemo(event)}}"
           event-final="{{event.summary}}"
           event-round="{{gc.extractRoundFromDescription(event.summary)}}"
           event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
           event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
           ng-mouseup="gc.openEvent($event,event)"
           >
-            <p><b>{{event.code}} {{event.code=='JRS'?event.summary:''}}</b></p>
+            <p><b>{{event.code=='JRS'?event.summary:event.code}}</b></p>
           </div>
           </div>
         </div>

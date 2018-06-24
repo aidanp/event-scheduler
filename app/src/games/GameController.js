@@ -28,6 +28,7 @@
     self.isSelected = isSelected;
     self.isGame = isGame;
     self.isJunior = isJunior;
+    self.isDemo = isDemo;
     self.getAmPm = getAmPm;
     self.getDayOfWeek = getDayOfWeek;
     self.toggleList   = toggleGamesList;
@@ -222,8 +223,16 @@
       * Returns true if the specified event is a juniors event.
       */
      function isJunior(event) {
-       return ( event.title.indexOf('JR') === 0 );
+       return ( event.code == 'JRS' );
      }
+
+     /**
+      * Returns true if the specified event is a juniors event.
+      */
+     function isDemo(event) {
+       return ( demoregex.test(event.event) );
+     }
+     var demoregex = new RegExp("D[0-9]\/[0-9]$");
 
      /**
       * Returns human readable string for 24-hour hour.

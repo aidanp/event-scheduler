@@ -278,7 +278,7 @@ span.name {
 	width: 80%;
 }
 
-.wbc-event-bar[event-format="Demo"] {
+.wbc-event-bar[event-is-demo=true] {
 	background-color: rgb(152, 209, 143);
 }
 
