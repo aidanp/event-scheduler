@@ -319,9 +319,12 @@
         for ( j = 0; j < rows.length; j++ ) {
           row = rows[j];
           existingEvent = row[row.length-1]; // last event
-          if ( event.time > existingEvent.time + existingEvent.duration + 2 ) {
-            // (two hours buffer for "9am" and one for trailing title if any)
-            break;
+          if ( !isJunior(existingEvent) ) {
+            // don't allow after juniors
+            if ( event.time > existingEvent.time + existingEvent.duration + 2 ) {
+              // (two hours buffer for "9am" and one for trailing title if any)
+              break;
+            }
           }
         }
         if (j === rows.length) {
