@@ -104,20 +104,19 @@
               item = convertToLowercase(item);
               item.summary = item.event;
               item.title = item.event;
-              // if ( item.format !== 'Sales' && item.format !== 'Meeting'
-              //   && item.format !== 'OG' && item.format !== 'Sign-In' ) {
-                // split title from round
-                index = item.event.lastIndexOf('Demo');
-                if (index === -1) {
-                  index = item.event.lastIndexOf(' ');
-                }
-                if (index !== -1) {
-                  item.title = item.event.substring(0,index);
-                  item.round = item.event.substring(index);
-                  //console.log(item.title, '|', item.round);
-                } else {
-                  console.log('Could not parse event:', item.event);
-                }
+
+              // split title from round
+              index = item.event.lastIndexOf('Demo');
+              if (index === -1) {
+                index = item.event.lastIndexOf(' ');
+              }
+              if (index !== -1) {
+                item.title = item.event.substring(0,index);
+                item.round = item.event.substring(index);
+                //console.log(item.title, '|', item.round);
+              } else {
+                console.log('Could not parse event:', item.event);
+              }
 
               var hours = Math.trunc(item.time);
               var minutes = (item.time - hours) * 60;
@@ -159,6 +158,7 @@
               }
               games.push(game);
             }
+            
             games.sort(function(a, b) {
                 if ( a.id > b.id ) {
                   return 1;
@@ -166,6 +166,7 @@
                   return -1;
                 }
             });
+
             resolve(games);
           });
         });

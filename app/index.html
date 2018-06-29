@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20180620" lang="en">
+<html manifest="site.manifest?20180621" lang="en">
 <!-- <html lang="en"> -->
   <head>
     <title>Event Scheduler</title>
@@ -68,9 +68,12 @@
         <md-icon>event</md-icon>
       </md-button>
  -->
-      <md-button print-div=".wbc-content" class="toolbar-right" aria-label="Print">
-        <md-icon>print</md-icon>
-      </md-button>
+       <md-button class="toolbar-right" ng-click="gc.layout == 0 ? gc.layout = 1 : gc.layout = 0" aria-label="Layout">
+         <md-icon>view_compact</md-icon>
+       </md-button>
+       <md-button print-div=".wbc-content" class="toolbar-right" aria-label="Print">
+         <md-icon>print</md-icon>
+       </md-button>
     </md-toolbar>
 
     <md-content class="wbc-content" flex id="content">
@@ -112,6 +115,7 @@
           <div ng-if="gc.getEventsForDay(n).length>0" style="page-break-after: always">
           <h1 ng-if="gc.getEventsForDay(n).length>0">July {{n}} - {{gc.getDayOfWeek(n)}}</h1>
           <div class="wbc-event-bar"
+          style="top:-{{(event.expandedRow-event.condensedRow)*30*gc.layout}}px"
           ng-repeat="event in gc.getEventsForDay(n)"
           event-start-minute="{{event.startDate.minute}}"
           event-start-hour="{{event.startDate.hour}}"

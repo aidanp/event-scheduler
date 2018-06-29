@@ -40,6 +40,7 @@
     self.clearList = clearList;
     self.openEvent = openEvent;
     self.gameCount = 0;
+    self.layout = 0;
     // Load all registered games
 
     var result = gameService
@@ -118,25 +119,27 @@
      }
 
      function extractRoundNumberFromRound(round) {
-       var result = 1;
-       round = round.toLowerCase();
-       if ( round.indexOf('demo') != -1 ) {
-         return 0;
-       }
-       if ( round === 'qf' ) {
-         return 9;
-       }
-       if ( round === 'sf' ) {
-         return 10;
-       }
-       if ( round === 'sf/f' || round === 'qf/sf/f' ) {
-         return 11;
-       }
-       if ( round === 'f' || round === 'final' ) {
-         return 12;
-       }
-       if (round.charAt(0) == 'r' && round.length>1) {
-         return round.charAt(1);
+       if (round) {
+         var result = 1;
+         round = round.toLowerCase();
+         if ( round.indexOf('demo') != -1 ) {
+           return 0;
+         }
+         if ( round === 'qf' ) {
+           return 9;
+         }
+         if ( round === 'sf' ) {
+           return 10;
+         }
+         if ( round === 'sf/f' || round === 'qf/sf/f' ) {
+           return 11;
+         }
+         if ( round === 'f' || round === 'final' ) {
+           return 12;
+         }
+         if (round.charAt(0) == 'r' && round.length>1) {
+           return round.charAt(1);
+         }
        }
        return 1;
      }
@@ -280,7 +283,7 @@
     /**
      * Return all events for the specified day of the convention.
      */
-    function getEventsForDay(day) {
+    function _getEventsForDay(day) {
       var i, j;
       var game, event;
       var result = [];
@@ -300,6 +303,36 @@
           return a.startDate.day*24 + a.startDate.hour - b.startDate.day*24 - b.startDate.hour;
       });
       return result;
+    }
+
+    /**
+     * Return all events for the specified day of the convention,
+     * and calculates expandedRow and condensedRow attributes.
+     */
+    function getEventsForDay(day) {
+      var event, row, existingEvent;
+      var rows = [];
+      var events = _getEventsForDay(day);
+      for ( i = 0; i < events.length; i++ ) {
+        event = events[i];
+        event.expandedRow = i;
+        for ( j = 0; j < rows.length; j++ ) {
+          row = rows[j];
+          existingEvent = row[row.length-1]; // last event
+          if ( event.time > existingEvent.time + existingEvent.duration + 2 ) {
+            // (two hours buffer for "9am" and one for trailing title if any)
+            break;
+          }
+        }
+        if (j === rows.length) {
+          // if no existing row found
+          row = [];
+          rows.push(row);
+        }
+        row.push(event);
+        event.condensedRow = j;
+      }
+      return events;
     }
 
 
