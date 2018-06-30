@@ -267,15 +267,21 @@ span.name {
 	width: 50%;
 }
 .wbc-event-bar[event-duration='11'] {
-	width: 65%;
+	width: 55%;
 }
 .wbc-event-bar[event-duration='12'] {
-	width: 70%;
+	width: 60%;
 }
 .wbc-event-bar[event-duration='13'] {
-	width: 75%;
+	width: 65%;
 }
 .wbc-event-bar[event-duration='14'] {
+	width: 70%;
+}
+.wbc-event-bar[event-duration='15'] {
+	width: 75%;
+}
+.wbc-event-bar[event-duration='16'] {
 	width: 80%;
 }
 

@@ -311,6 +311,7 @@
      */
     function getEventsForDay(day) {
       var event, row, existingEvent;
+      var a, b;
       var rows = [];
       var events = _getEventsForDay(day);
       for ( i = 0; i < events.length; i++ ) {
@@ -321,8 +322,10 @@
           existingEvent = row[row.length-1]; // last event
           if ( !isJunior(existingEvent) ) {
             // don't allow after juniors
-            if ( event.time > existingEvent.time + existingEvent.duration + 2 ) {
-              // (two hours buffer for "9am" and one for trailing title if any)
+            a = event.time > 6 ? event.time : event.time + 24;
+            b = existingEvent.time > 6 ? existingEvent.time : existingEvent.time + 24;
+            b = b + existingEvent.duration; 
+            if ( a > b + 1 ) {
               break;
             }
           }
