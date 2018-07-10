@@ -90,7 +90,7 @@
   {"Code": "PRO", "Prize": 4.0, "Format": "HMW", "Continuous": "", "Event": "Puerto Rico SF", "Duration": 2.0, "Location": "Wintergreen", "Time": 20, "Date": "07/28/2018", "GM": "Shay, Richard", "Class": "B"},
   {"Code": "PRO", "Prize": 4.0, "Format": "HMW", "Continuous": "", "Event": "Puerto Rico F", "Duration": 2.0, "Location": "Wintergreen", "Time": 9, "Date": "07/29/2018", "GM": "Shay, Richard", "Class": "B"},
   {"Code": "8VK", "Prize": null, "Format": null, "Continuous": "", "Event": "878 Vikings D1/2", "Duration": 1.0, "Location": "Annex 4", "Time": 16, "Date": "07/21/2018", "GM": "Beall, Scott", "Class": null},
-  {"Code": "8VK", "Prize": null, "Format": null, "Continuous": "", "Event": "878 Vikings D2/2", "Duration": 1.0, "Location": "Annex 4", "Time": 17, "Date": "07/21/2018", "GM": "Beall, Scott", "Class": null},
+  {"Code": "8VK", "Prize": null, "Format": null, "Continuous": "", "Event": "878 Vikings D2/2", "Duration": 1.0, "Location": "Annex 4", "Time": 17, "Date": "07/22/2018", "GM": "Beall, Scott", "Class": null},
   {"Code": "8VK", "Prize": 1.0, "Format": "SwEl", "Continuous": "", "Event": "878 Vikings R1/4", "Duration": 3.0, "Location": "First Tracks Center", "Time": 18, "Date": "07/21/2018", "GM": "Beall, Scott", "Class": "B"},
   {"Code": "8VK", "Prize": 1.0, "Format": "SwEl", "Continuous": "", "Event": "878 Vikings R2/4", "Duration": 3.0, "Location": "First Tracks Center", "Time": 21, "Date": "07/21/2018", "GM": "Beall, Scott", "Class": "B"},
   {"Code": "8VK", "Prize": 1.0, "Format": "SwEl", "Continuous": "", "Event": "878 Vikings R3/4", "Duration": 3.0, "Location": "First Tracks Slopeside", "Time": 18, "Date": "07/22/2018", "GM": "Beall, Scott", "Class": "B"},
