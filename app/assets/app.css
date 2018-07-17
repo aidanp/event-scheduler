@@ -40,8 +40,7 @@ md-list md-list-item {
 
   md-sidenav {
     overflow-y: scroll; /* has to be scroll, not auto */
-    z-index: 0;
-	  -webkit-overflow-scrolling: touch;
+    z-index: 1; /* prompt to force chrome 'fast scrolling' */
     max-width: 75% !important;
     min-width: inherit;
   }
