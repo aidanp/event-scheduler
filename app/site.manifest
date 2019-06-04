@@ -1,12 +1,12 @@
 CACHE MANIFEST
 # This is a comment.
-# Cache manifest version 1.6.5.
+# Cache manifest version 1.7.2.
 # If you change the version number in this comment,
 # the cache manifest is no longer byte-for-byte
 # identical.
 
 index.html
-assets/2018.json
+assets/2019.json
 assets/app.css
 assets/fonts/MaterialIcons-Regular.ttf
 assets/fonts/MaterialIcons.css

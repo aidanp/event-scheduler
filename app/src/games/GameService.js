@@ -93,7 +93,7 @@
     return {
       loadFromJson: function() {
         return $q(function(resolve, reject) {
-        $http.get('assets/2018.json').
+        $http.get('assets/2019.json').
           success(function(data, status, headers, config) {
             var item;
             var index;
@@ -158,7 +158,7 @@
               }
               games.push(game);
             }
-            
+
             games.sort(function(a, b) {
                 if ( a.id > b.id ) {
                   return 1;

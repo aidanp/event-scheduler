@@ -259,15 +259,15 @@
       */
      function getDayOfWeek(day) {
        switch (day) {
-          case 21: return 'Saturday';
-          case 22: return 'Sunday';
-          case 23: return 'Monday';
-          case 24: return 'Tuesday';
-          case 25: return 'Wednesday';
-          case 26: return 'Thursday';
-          case 27: return 'Friday';
-          case 28: return 'Saturday';
-          case 29: return 'Sunday';
+          case 20: return 'Saturday';
+          case 21: return 'Sunday';
+          case 22: return 'Monday';
+          case 23: return 'Tuesday';
+          case 24: return 'Wednesday';
+          case 25: return 'Thursday';
+          case 26: return 'Friday';
+          case 27: return 'Saturday';
+          case 28: return 'Sunday';
        }
      }
 
@@ -324,7 +324,7 @@
             // don't allow after juniors
             a = event.time > 6 ? event.time : event.time + 24;
             b = existingEvent.time > 6 ? existingEvent.time : existingEvent.time + 24;
-            b = b + existingEvent.duration; 
+            b = b + existingEvent.duration;
             if ( a > b + 1 ) {
               break;
             }
