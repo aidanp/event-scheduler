@@ -400,8 +400,8 @@ div[event-start-minute='45'] {
 .wbc-event-bar:after {
 	content: attr(event-start-hour-ampm);
 	position: absolute;
-	left: -34px;
-	width: 30px;
+  left: -24px;
+  width: 15px;
 	top: 4px;
 	height: 18px;
 	line-height: 18px;
