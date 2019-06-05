@@ -23,8 +23,10 @@
     self.allGames = {};
     self.games = [];
     self.undo = undo;
-    self.toggleGame   = toggleGame;
+    self.toggleCompact = toggleCompact;
+    self.toggleGame = toggleGame;
     self.getEventsForDay = getEventsForDay;
+    self.getRowsForDay = getRowsForDay;
     self.isSelected = isSelected;
     self.isGame = isGame;
     self.isJunior = isJunior;
@@ -40,7 +42,6 @@
     self.clearList = clearList;
     self.openEvent = openEvent;
     self.gameCount = 0;
-    self.layout = 0;
     // Load all registered games
 
     var result = gameService
@@ -63,6 +64,12 @@
       var existing;
       try {
         existing = JSON.parse(localStorage.getItem('persisted'));
+        self.layout = localStorage.getItem('layout');
+        if (self.layout) {
+          self.layout = parseInt(self.layout);
+        } else {
+          self.layout = 0;
+        }
       } catch (e) {
         console.log(e);
       }
@@ -74,6 +81,7 @@
 
     function writeSelected() {
       localStorage.setItem('persisted',JSON.stringify(self.selectedList));
+      localStorage.setItem('layout',self.layout);
     }
 
     function toggleGamesList() {
@@ -82,6 +90,11 @@
       pending.then(function(){
         $mdSidenav('left').toggle();
       });
+    }
+
+    function toggleCompact() {
+      self.layout == 0 ? self.layout = 1 : self.layout = 0;
+      localStorage.setItem('layout',self.layout);
     }
 
     /**
@@ -339,6 +352,19 @@
         event.condensedRow = j;
       }
       return events;
+    }
+
+    function getRowsForDay(day) {
+      var result = 0;
+      var events = getEventsForDay(day);
+      if (events && events.length > 0) {
+        for (var i in events) {
+          if (events[i].condensedRow > result) {
+            result = events[i].condensedRow;
+          }
+        }
+      }
+      return result;
     }
 
 

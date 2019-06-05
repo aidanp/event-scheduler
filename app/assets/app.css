@@ -143,6 +143,10 @@ span.name {
   padding-left:5px;
 }
 
+.row-container {
+  transition: height .5s;
+}
+
 .wbc-event-bar {
   position: relative;
   border: 1px solid gray;
