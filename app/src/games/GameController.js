@@ -255,15 +255,15 @@
       */
      function getAmPm(hour) {
        if ( hour === 0 ) {
-         return "12am";
+         return "12a";
        }
        if ( hour === 12 ) {
-         return "12pm";
+         return "12p";
        }
        if ( hour > 12 ) {
-         return (hour-12) + 'pm';
+         return (hour-12) + 'p';
        }
-       return hour + 'am';
+       return hour + 'a';
      }
 
      /**
