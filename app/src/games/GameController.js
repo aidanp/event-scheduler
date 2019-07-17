@@ -193,9 +193,14 @@
         }
       }
 
+      var cheapDoubletap = 0;
       function focusOnEvent($event, event) {
         // confusingly named event and $event
-        if ($event.detail > 1) {
+        var now = new Date().getTime();
+        if (now - cheapDoubletap > 500) {
+          cheapDoubletap = now;
+        } else {
+          // mimick double click for touch devices
           self.focusedGame = event.code;
         }
       }
