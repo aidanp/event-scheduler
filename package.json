@@ -18,5 +18,11 @@
     "postinstall": "bower update",
     "prestart": "npm update",
     "test": "protractor ./e2e/protractor.conf.js"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-animate": "^1.7.8",
+    "angular-aria": "^1.7.8",
+    "angular-material": "^1.1.19"
   }
 }

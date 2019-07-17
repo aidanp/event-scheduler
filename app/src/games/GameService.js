@@ -94,11 +94,12 @@
       loadFromJson: function() {
         return $q(function(resolve, reject) {
         $http.get('assets/2019.json').
-          success(function(data, status, headers, config) {
+          then(function(response) {
             var item;
             var index;
             var events;
             var codeToEvents = {};
+            var data = response.data;
             for ( var i in data ) {
               item = data[i];
               item = convertToLowercase(item);
@@ -175,9 +176,10 @@
       loadAllGames : function() {
         return $q(function(resolve, reject) {
         $http.get('assets/all-in-one.ics').
-          success(function(data, status, headers, config) {
+          then(function(response) {
 
             var dictionary = {};
+            var data = response.data;
 
             // this callback will be called asynchronously
             // when the response is available
@@ -261,8 +263,7 @@
             // console.log("SUCCESS");
             // console.log(summary);
 
-          }).
-          error(function(data, status, headers, config) {
+          }, function(error) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
             console.log("COULD NOT LOAD SCHEDULE");
