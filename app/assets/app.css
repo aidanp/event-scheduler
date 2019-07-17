@@ -143,10 +143,12 @@ span.name {
   padding-left:5px;
 }
 
-.row-container {
+.animate .row-container {
   transition: height .5s;
 }
-
+.animate .wbc-event-bar {
+  transition: top .5s;
+}
 .wbc-event-bar {
   position: relative;
   border: 1px solid gray;
@@ -155,7 +157,6 @@ span.name {
   background: rgb(192, 227, 255);
   line-height: 0px;
   min-width: 2.5%;
-  transition: top .5s;
 }
 .wbc-event-bar p {
 	margin: 0px;

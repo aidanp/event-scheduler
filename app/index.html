@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20190609" lang="en">
+<html manifest="site.manifest?20190610" lang="en">
 <html lang="en">
   <head>
     <title>Event Scheduler</title>
@@ -23,7 +23,8 @@
     <link rel="apple-touch-icon" sizes="58x58" href="assets/icons/Icon-Small@2x.png" />
   </head>
 
-  <body ng-app="starterApp" layout="row" ng-controller="GameController as gc" ng-cloak>
+  <body ng-class="{'animate' : !gc.focusedGame }"
+    ng-app="starterApp" layout="row" ng-controller="GameController as gc" ng-cloak>
 
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
                 md-component-id="left"
@@ -58,18 +59,18 @@
 
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
-    <md-toolbar layout="row" class="md-whiteframe-z1">
+    <md-toolbar ng-if="!gc.focusedGame" layout="row" class="md-whiteframe-z1">
       <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
-      <h1>Scheduler 2019</h1>
+      <h1>WBC 2019</h1>
       <span flex></span>
 <!--
       <md-button class="toolbar-right" ng-click="gc.exportCalendar()" aria-label="Export">
         <md-icon>event</md-icon>
       </md-button>
  -->
-       <md-button class="toolbar-right" ng-click="gc.showMap($event)" aria-label="Layout">
+       <md-button class="toolbar-right" ng-click="gc.showMap($event)" aria-label="Map">
          <md-icon>map</md-icon>
        </md-button>
        <md-button class="toolbar-right" ng-click="gc.toggleCompact()" aria-label="Layout">
@@ -78,6 +79,20 @@
        <md-button print-div=".wbc-content" class="toolbar-right" aria-label="Print">
          <md-icon>print</md-icon>
        </md-button>
+    </md-toolbar>
+
+    <md-toolbar ng-if="gc.focusedGame" layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>{{gc.allGames[gc.focusedGame].summary}}</h1>
+      <span flex></span>
+      <md-button class="toolbar-right" ng-click="gc.openEvent($event,gc.focusedGame)" aria-label="Close">
+        <md-icon>open_in_new</md-icon>
+      </md-button>
+      <md-button class="toolbar-right" ng-click="gc.focusedGame = null" aria-label="Close">
+        <md-icon>close</md-icon>
+      </md-button>
     </md-toolbar>
 
     <md-content class="wbc-content" flex id="content">
@@ -141,7 +156,7 @@
           event-round="{{gc.extractRoundFromDescription(event.summary)}}"
           event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
           event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
-          ng-mouseup="gc.openEvent($event,event)"
+          ng-mouseup="gc.focusOnEvent($event,event)"
           >
             <p><b>{{event.code=='JRS'?event.summary:event.code}}</b></p>
           </div>
@@ -172,17 +187,11 @@
               .config(function($mdThemingProvider, $mdIconProvider){
 
                   $mdIconProvider
-                      .defaultIconSet("./assets/svg/avatars.svg", 128)
-                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-                      .icon("share"      , "./assets/svg/share.svg"       , 24)
-                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+                      .defaultIconSet("./assets/svg/avatars.svg", 128);
 
-                      $mdThemingProvider.theme('default')
-                          .primaryPalette('brown')
-                          .accentPalette('red');
+                  $mdThemingProvider.theme('default')
+                      .primaryPalette('brown')
+                      .accentPalette('red');
 
               });
 

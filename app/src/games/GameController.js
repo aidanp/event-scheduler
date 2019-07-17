@@ -22,6 +22,8 @@
     self.reservedList = [];
     self.allGames = {};
     self.games = [];
+    self.focusedGame = null;
+    self.focusOnEvent = focusOnEvent;
     self.undo = undo;
     self.toggleCompact = toggleCompact;
     self.toggleGame = toggleGame;
@@ -36,7 +38,6 @@
     self.toggleList   = toggleGamesList;
     self.showMap = showMap;
     self.exportCalendar   = exportCalendar;
-    self.showContactOptions  = showContactOptions;
     self.extractRoundFromDescription  = extractRoundFromDescription;
     self.extractRoundNumberFromRound = extractRoundNumberFromRound;
     self.selectAll = selectAll;
@@ -192,12 +193,15 @@
         }
       }
 
-      function openEvent($event, event) {
+      function focusOnEvent($event, event) {
         // confusingly named event and $event
         if ($event.detail > 1) {
-          // open event preview on double-click
-          window.open('http://www.boardgamers.org/wbc17/previews/'+event.code+'.html');
+          self.focusedGame = event.code;
         }
+      }
+
+      function openEvent($event, code) {
+          window.open('http://www.boardgamers.org/wbc17/previews/'+code+'.html');
       }
 
       function selectAll(){
@@ -306,8 +310,12 @@
       var i, j;
       var game, event;
       var result = [];
-      for ( i in self.selectedList ) {
-        game = self.allGames[self.selectedList[i]];
+      var selected = self.selectedList;
+      if (self.focusedGame) {
+        selected = [self.focusedGame];
+      }
+      for ( i in selected ) {
+        game = self.allGames[selected[i]];
         if ( game && game.events ) {
             for ( j in game.events ) {
               event = game.events[j];
