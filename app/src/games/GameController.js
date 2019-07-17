@@ -3,7 +3,7 @@
   angular
        .module('games')
        .controller('GameController', [
-          'gameService', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
+          'gameService', '$mdSidenav', '$mdDialog', '$mdBottomSheet', '$log', '$q',
           GameController
        ]);
 
@@ -14,7 +14,7 @@
    * @param avatarsService
    * @constructor
    */
-  function GameController( gameService, $mdSidenav, $mdBottomSheet, $log, $q) {
+  function GameController( gameService, $mdSidenav, $mdDialog, $mdBottomSheet, $log, $q) {
     var self = this;
 
     self.onSwipeLeft = onSwipeLeft;
@@ -34,6 +34,7 @@
     self.getAmPm = getAmPm;
     self.getDayOfWeek = getDayOfWeek;
     self.toggleList   = toggleGamesList;
+    self.showMap = showMap;
     self.exportCalendar   = exportCalendar;
     self.showContactOptions  = showContactOptions;
     self.extractRoundFromDescription  = extractRoundFromDescription;
@@ -95,6 +96,11 @@
     function toggleCompact() {
       self.layout == 0 ? self.layout = 1 : self.layout = 0;
       localStorage.setItem('layout',self.layout);
+    }
+
+    function showMap(ev) {
+      var viewer = new ImageViewer.FullScreenViewer();
+      viewer.show('assets/program2019-map.png')
     }
 
     /**
