@@ -44,6 +44,8 @@
     self.clearList = clearList;
     self.openEvent = openEvent;
     self.gameCount = 0;
+    self.isAnimating = true;
+    self.suppressAnimation = suppressAnimation;
     // Load all registered games
 
     var result = gameService
@@ -104,6 +106,13 @@
       viewer.show('assets/program2019-map.png')
     }
 
+    function suppressAnimation() {
+      self.isAnimating = false;
+      window.setTimeout(function() {
+        self.isAnimating = true;
+      }, 1000);
+    }
+
     /**
      * Select the current avatars
      * @param menuId
@@ -111,6 +120,8 @@
      function toggleGame ( game ) {
        //self.selected = angular.isNumber(game) ? $scope.games[game] : game;
        //self.toggleList();
+       suppressAnimation();
+
        var i;
        for ( i in self.selectedList ) {
          if ( self.allGames[self.selectedList[i]] === game ) {
@@ -201,6 +212,7 @@
           cheapDoubletap = now;
         } else {
           // mimick double click for touch devices
+          suppressAnimation();
           self.focusedGame = event.code;
         }
       }
@@ -210,6 +222,7 @@
       }
 
       function selectAll(){
+        suppressAnimation();
         self.reservedList = self.selectedList;
         self.selectedList = [];
         for (var i in self.allGames) {

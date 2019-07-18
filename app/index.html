@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20190613" lang="en">
+<html manifest="site.manifest?20190614" lang="en">
 <html lang="en">
   <head>
     <title>Event Scheduler</title>
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" sizes="58x58" href="assets/icons/Icon-Small@2x.png" />
   </head>
 
-  <body ng-class="{'animate' : !gc.focusedGame }"
+  <body ng-class="{'animate' : gc.isAnimating }"
     ng-app="starterApp" layout="row" ng-controller="GameController as gc" ng-cloak>
 
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
@@ -82,16 +82,13 @@
     </md-toolbar>
 
     <md-toolbar ng-if="gc.focusedGame" layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
+      <md-button class="toolbar-right" ng-click="gc.focusedGame = null" aria-label="Back">
+        <md-icon>arrow_back</md-icon>
       </md-button>
       <h1>{{gc.allGames[gc.focusedGame].summary}}</h1>
       <span flex></span>
-      <md-button class="toolbar-right" ng-click="gc.openEvent($event,gc.focusedGame)" aria-label="Close">
+      <md-button class="toolbar-right" ng-click="gc.openEvent($event,gc.focusedGame)" aria-label="Open">
         <md-icon>open_in_new</md-icon>
-      </md-button>
-      <md-button class="toolbar-right" ng-click="gc.focusedGame = null" aria-label="Close">
-        <md-icon>close</md-icon>
       </md-button>
     </md-toolbar>
 
