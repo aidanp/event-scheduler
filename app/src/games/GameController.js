@@ -3,7 +3,7 @@
   angular
        .module('games')
        .controller('GameController', [
-          'gameService', '$mdSidenav', '$mdDialog', '$mdBottomSheet', '$log', '$q',
+          'gameService', '$mdSidenav', '$mdDialog', '$mdBottomSheet', '$log', '$q', '$location', '$anchorScroll',
           GameController
        ]);
 
@@ -14,7 +14,7 @@
    * @param avatarsService
    * @constructor
    */
-  function GameController( gameService, $mdSidenav, $mdDialog, $mdBottomSheet, $log, $q) {
+  function GameController( gameService, $mdSidenav, $mdDialog, $mdBottomSheet, $log, $q, $location, $anchorScroll) {
     var self = this;
 
     self.onSwipeLeft = onSwipeLeft;
@@ -46,6 +46,7 @@
     self.gameCount = 0;
     self.isAnimating = true;
     self.suppressAnimation = suppressAnimation;
+
     // Load all registered games
 
     var result = gameService
@@ -399,6 +400,16 @@
       return result;
     }
 
+    // scroll to today's date on launch
+    window.setTimeout(function () {
+      var now = new Date();
+      if (now.getMonth() === 6) {
+        var anchor = 'July ' + now.getDate();
+        $location.hash(anchor);
+        $anchorScroll();
+        console.log('Scrolling to ' + anchor );
+      }
+    }, 100);
 
     /**
      * Show the bottom sheet

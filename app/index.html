@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20190614" lang="en">
+<html manifest="site.manifest?20190615" lang="en">
 <html lang="en">
   <head>
     <title>Event Scheduler</title>
@@ -134,6 +134,7 @@
             ng-if="gc.getEventsForDay(n).length>0"
             class="row-container"
             style="height:{{gc.layout?30*(gc.getRowsForDay(n)+1)+'px':30*(gc.getEventsForDay(n).length)+'px'}};page-break-after: always;">
+          <a id="July {{n}}"></a>
           <h1 ng-if="gc.getEventsForDay(n).length>0">July {{n}} - {{gc.getDayOfWeek(n)}}</h1>
           <div class="wbc-event-bar"
           ng-repeat="event in gc.getEventsForDay(n)"
@@ -160,9 +161,9 @@
           </div>
         </div>
 
+        <div style="height:100px"></div>
 
       </md-content>
-
   </div>
 
     <script src="./bower_components/angular/angular.js"></script>
