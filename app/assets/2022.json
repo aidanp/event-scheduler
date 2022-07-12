@@ -496,7 +496,7 @@
   {"Code": "RRR", "Prize": null, "Class": "B", "Format": "HMW-P", "Continuous": "", "Event": "Russian Railroads H3/3", "GM": "Spencer, Jay", "Location": "Sunburst", "Date": "07/28/2022", "Time": 19, "Duration": 2.0},
   {"Code": "RRR", "Prize": null, "Class": "B", "Format": "HMW-P", "Continuous": "", "Event": "Russian Railroads SF", "GM": "Spencer, Jay", "Location": "Wintergreen", "Date": "07/30/2022", "Time": 9, "Duration": 2.0},
   {"Code": "RRR", "Prize": null, "Class": "B", "Format": "HMW-P", "Continuous": "", "Event": "Russian Railroads F", "GM": "Spencer, Jay", "Location": "Laurel", "Date": "07/30/2022", "Time": 11, "Duration": 2.0},
-  {"Code": "SSB", "Prize": null, "Class": "B", "Format": "SwEl", "Continuous": "", "Event": "Superstar Baseball R1/4", "GM": "Lee, Roderick", "Location": "ch", "Date": "07/25/2022", "Time": 10, "Duration": 6.0},
+  {"Code": "SSB", "Prize": null, "Class": "B", "Format": "SwEl", "Continuous": "", "Event": "Superstar Baseball R1/4", "GM": "Lee, Roderick", "Location": "Snowflake", "Date": "07/25/2022", "Time": 10, "Duration": 6.0},
   {"Code": "SSB", "Prize": null, "Class": null, "Format": null, "Continuous": "", "Event": "Superstar Baseball D1/1", "GM": "Lee, Roderick", "Location": "Exhibit Hall Annex #1", "Date": "07/25/2022", "Time": 15, "Duration": 1.0},
   {"Code": "SSB", "Prize": null, "Class": "B", "Format": "SwEl", "Continuous": "", "Event": "Superstar Baseball R2/4", "GM": "Lee, Roderick", "Location": "Wintergreen", "Date": "07/26/2022", "Time": 20, "Duration": 6.0},
   {"Code": "SSB", "Prize": null, "Class": "B", "Format": "SwEl", "Continuous": "", "Event": "Superstar Baseball R3/4", "GM": "Lee, Roderick", "Location": "Chestnut", "Date": "07/27/2022", "Time": 20, "Duration": 6.0},
