@@ -219,7 +219,7 @@
       }
 
       function openEvent($event, code) {
-          window.open('http://www.boardgamers.org/wbc22/previews/'+code+'.html');
+          window.open('http://www.boardgamers.org/wbc23/previews/'+code+'.html');
       }
 
       function selectAll(){
@@ -301,15 +301,15 @@
       */
      function getDayOfWeek(day) {
        switch (day) {
-          case 23: return 'Saturday';
-          case 24: return 'Sunday';
-          case 25: return 'Monday';
-          case 26: return 'Tuesday';
-          case 27: return 'Wednesday';
-          case 28: return 'Thursday';
-          case 29: return 'Friday';
-          case 30: return 'Saturday';
-          case 31: return 'Sunday';
+          case 22: return 'Saturday';
+          case 23: return 'Sunday';
+          case 24: return 'Monday';
+          case 25: return 'Tuesday';
+          case 26: return 'Wednesday';
+          case 27: return 'Thursday';
+          case 28: return 'Friday';
+          case 29: return 'Saturday';
+          case 30: return 'Sunday';
        }
      }
 
