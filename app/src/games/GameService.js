@@ -93,7 +93,7 @@
     return {
       loadFromJson: function() {
         return $q(function(resolve, reject) {
-        $http.get('assets/2023.json').
+        $http.get('assets/2024.json').
           then(function(response) {
             var item;
             var index;
@@ -116,7 +116,8 @@
                 item.round = item.event.substring(index);
                 //console.log(item.title, '|', item.round);
               } else {
-                console.log('Could not parse event:', item.event);
+                // single-word event: ignore
+                // console.log(item.event, item);
               }
 
               var hours = Math.trunc(item.time);
@@ -133,8 +134,16 @@
               item.endDate.minute = item.endDate.getMinutes();
 
               if ( item.code === 'Juniors' ) {
-                // special handling for JR
+                // special handling for JRS
                 item.code = 'JRS';
+              }
+              if ( item.code === 'Demo' ) {
+                // special handling for Demos
+                item.code = 'DEMO';
+              }
+              if ( item.code === 'Seminar' ) {
+                // special handling for Demos
+                item.code = 'MEET';
               }
               events = codeToEvents[item.code];
               if (!events) {
@@ -155,6 +164,15 @@
                 if ( i === 'JRS' ) {
                   // special handling for JR
                   game.summary = 'Juniors Events';
+                }
+                if ( i === 'DEMO' ) {
+                  // special handling for JR
+                  game.summary = 'Demonstrations';
+                  game.title = game.event;
+                }
+                if ( i === 'MEET' ) {
+                  // special handling for JR
+                  game.summary = 'Seminars';
                 }
               }
               games.push(game);

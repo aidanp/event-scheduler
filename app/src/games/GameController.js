@@ -32,6 +32,7 @@
     self.isSelected = isSelected;
     self.isGame = isGame;
     self.isJunior = isJunior;
+    self.summarize = summarize;
     self.isDemo = isDemo;
     self.getAmPm = getAmPm;
     self.getDayOfWeek = getDayOfWeek;
@@ -268,14 +269,26 @@
       * Returns true if the specified event is a juniors event.
       */
      function isJunior(event) {
-       return ( event.code == 'JRS' );
+       return ( event.code === 'JRS' );
+     }
+
+     function summarize(event) {
+       if (isJunior(event)) {
+        return event.summary;
+       } else if (event.code === 'DEMO' || event.code === 'MEET') {
+        return event.event;
+       } else {
+        return event.code;
+       }
      }
 
      /**
       * Returns true if the specified event is a juniors event.
       */
      function isDemo(event) {
-       return ( demoregex.test(event.event) );
+       return ( event.code === 'DEMO' 
+          || event.code === 'MEET' 
+          || demoregex.test(event.event) );
      }
      var demoregex = new RegExp("D[0-9]\/[0-9]$");
 
@@ -297,19 +310,19 @@
 
      /**
       * Returns human readable day for day of month.
-      * NOTE: hardcoded for WBC 2018, sorry.
+      * NOTE: hardcoded for WBC 2024, sorry.
       */
      function getDayOfWeek(day) {
        switch (day) {
-          case 22: return 'Saturday';
-          case 23: return 'Sunday';
-          case 24: return 'Monday';
-          case 25: return 'Tuesday';
-          case 26: return 'Wednesday';
-          case 27: return 'Thursday';
-          case 28: return 'Friday';
-          case 29: return 'Saturday';
-          case 30: return 'Sunday';
+          case 20: return 'Saturday';
+          case 21: return 'Sunday';
+          case 22: return 'Monday';
+          case 23: return 'Tuesday';
+          case 24: return 'Wednesday';
+          case 25: return 'Thursday';
+          case 26: return 'Friday';
+          case 27: return 'Saturday';
+          case 28: return 'Sunday';
        }
      }
 
