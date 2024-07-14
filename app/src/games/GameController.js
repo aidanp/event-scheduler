@@ -220,7 +220,7 @@
       }
 
       function openEvent($event, code) {
-          window.open('http://www.boardgamers.org/wbc23/previews/'+code+'.html');
+          window.open('http://www.boardgamers.org/wbc24/previews/'+code+'.html');
       }
 
       function selectAll(){
