@@ -314,15 +314,15 @@
      */
     function getDayOfWeek(day) {
       switch (day) {
-        case 19: return 'Saturday';
-        case 20: return 'Sunday';
-        case 21: return 'Monday';
-        case 22: return 'Tuesday';
-        case 23: return 'Wednesday';
-        case 24: return 'Thursday';
-        case 25: return 'Friday';
         case 26: return 'Saturday';
         case 27: return 'Sunday';
+        case 28: return 'Monday';
+        case 29: return 'Tuesday';
+        case 30: return 'Wednesday';
+        case 31: return 'Thursday';
+        case 1: return 'Friday';
+        case 2: return 'Saturday';
+        case 3: return 'Sunday';
       }
     }
 
