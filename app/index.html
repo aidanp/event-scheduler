@@ -1,58 +1,61 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20240704" lang="en">
+<html manifest="site.manifest?20250601" lang="en">
 <html lang="en">
-  <head>
-    <title>Event Scheduler</title>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-touch-fullscreen" content="yes"/>
+<head>
+  <title>Event Scheduler</title>
 
-    <link rel='stylesheet' href='assets/fonts/Roboto.css'>
-    <link rel='stylesheet' href='assets/fonts/MaterialIcons.css'>
-    <link rel="stylesheet" href="assets/iv-viewer.min.css"/>
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
-    <link rel="stylesheet" href="assets/app.css"/>
-    <link rel="apple-touch-icon" href="assets/icons/Icon-60@2x.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/Icon-60@3x.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/Icon-76.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/Icon-76@2x.png" />
-    <link rel="apple-touch-icon" sizes="58x58" href="assets/icons/Icon-Small@2x.png" />
-  </head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
 
-  <body ng-class="{'animate' : gc.isAnimating }"
-    ng-app="starterApp" layout="row" ng-controller="GameController as gc" ng-cloak>
+  <link rel='stylesheet' href='assets/fonts/Roboto.css'>
+  <link rel='stylesheet' href='assets/fonts/MaterialIcons.css'>
+  <link rel="stylesheet" href="assets/iv-viewer.min.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="assets/app.css" />
+  <link rel="apple-touch-icon" href="assets/icons/Icon-60@2x.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/Icon-60@3x.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/Icon-76.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/Icon-76@2x.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="assets/icons/Icon-Small@2x.png" />
+</head>
 
-  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-                md-component-id="left"
-                md-swipe-left="gc.onSwipeLeft()"
-                md-is-locked-open="$mdMedia('gt-xs')">
+<body ng-class="{'animate' : gc.isAnimating }" ng-app="starterApp" layout="row" ng-controller="GameController as gc"
+  ng-cloak>
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left"
+    md-swipe-left="gc.onSwipeLeft()" md-is-locked-open="$mdMedia('gt-xs')">
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <h1>Events</h1>
-          <span flex></span>
-          <md-button ng-if="gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-click="gc.selectAll()" aria-label="Select All">
-            <md-icon class="material-icons">select_all</md-icon>
-          </md-button>
-          <md-button ng-if="gc.selectedList.length>0 && gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-click="gc.clearList()" aria-label="Clear">
-            <md-icon class="material-icons">backspace</md-icon>
-          </md-button>
-          <md-button ng-if="gc.reservedList.length>0" class="toolbar-right" ng-click="gc.undo()" aria-label="Undo">
-            Undo
-          </md-button>
+      <span flex></span>
+      <md-button ng-if="gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-click="gc.selectAll()"
+        aria-label="Select All">
+        <md-icon class="material-icons">select_all</md-icon>
+      </md-button>
+      <md-button ng-if="gc.selectedList.length>0 && gc.selectedList.length < gc.gameCount" class="toolbar-right"
+        ng-click="gc.clearList()" aria-label="Clear">
+        <md-icon class="material-icons">backspace</md-icon>
+      </md-button>
+      <md-button ng-if="gc.reservedList.length>0" class="toolbar-right" ng-click="gc.undo()" aria-label="Undo">
+        Undo
+      </md-button>
 
     </md-toolbar>
 
     <md-content flex>
-    <md-list>
-      <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-click="gc.toggleGame(it)" ng-class="{'selected' : gc.isSelected(it) }">
-            <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
-            {{it.id}}<span ng-if="it.summary" style="white-space:nowrap">: {{it.summary}}</span>
-      </md-list-item>
-    </md-list>
+      <md-list>
+        <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-click="gc.toggleGame(it)"
+          ng-class="{'selected' : gc.isSelected(it) }">
+          <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
+          {{it.id}}<span ng-if="it.summary" style="white-space:nowrap">: {{it.summary}}</span>
+        </md-list-item>
+      </md-list>
     </md-content>
   </md-sidenav>
 
@@ -61,24 +64,24 @@
 
     <md-toolbar ng-if="!gc.focusedGame" layout="row" class="md-whiteframe-z1">
       <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
+        <md-icon md-svg-icon="menu"></md-icon>
       </md-button>
-      <h1>WBC 2024</h1>
+      <h1>WBC 2025</h1>
       <span flex></span>
-<!--
+      <!--
       <md-button class="toolbar-right" ng-click="gc.exportCalendar()" aria-label="Export">
         <md-icon>event</md-icon>
       </md-button>
  -->
-       <md-button class="toolbar-right" ng-click="gc.showMap($event)" aria-label="Map">
-         <md-icon>map</md-icon>
-       </md-button>
-       <md-button class="toolbar-right" ng-click="gc.toggleCompact()" aria-label="Layout">
-         <md-icon>view_compact</md-icon>
-       </md-button>
-       <md-button print-div=".wbc-content" class="toolbar-right" aria-label="Print">
-         <md-icon>print</md-icon>
-       </md-button>
+      <md-button class="toolbar-right" ng-click="gc.showMap($event)" aria-label="Map">
+        <md-icon>map</md-icon>
+      </md-button>
+      <md-button class="toolbar-right" ng-click="gc.toggleCompact()" aria-label="Layout">
+        <md-icon>view_compact</md-icon>
+      </md-button>
+      <md-button print-div=".wbc-content" class="toolbar-right" aria-label="Print">
+        <md-icon>print</md-icon>
+      </md-button>
     </md-toolbar>
 
     <md-toolbar ng-if="gc.focusedGame" layout="row" class="md-whiteframe-z1">
@@ -94,112 +97,102 @@
 
     <md-content class="wbc-content" flex id="content">
       <!-- this duplicate stylesheet link is required to print properly -->
-      <link rel="stylesheet" href="assets/app.css"/>
+      <link rel="stylesheet" href="assets/app.css" />
 
-        <!-- <md-icon md-svg-icon="{{gc.selected.avatar}}" class="avatar"></md-icon> -->
+      <!-- <md-icon md-svg-icon="{{gc.selected.avatar}}" class="avatar"></md-icon> -->
 
-        <!-- <md-button class="contact" md-no-ink ng-click="gc.showContactOptions($event)" aria-label="Contact User">
+      <!-- <md-button class="contact" md-no-ink ng-click="gc.showContactOptions($event)" aria-label="Contact User">
           <md-tooltip>Contact {{ gc.selected.name }}</md-tooltip>
           <md-icon md-svg-icon="share"></md-icon>
         </md-button> -->
 
-        <h1 ng-if="gc.selectedList.length==0" class="empty-content">Please select one or more events from the sidebar.</h1>
+      <h1 ng-if="gc.selectedList.length==0" class="empty-content">Please select one or more events from the sidebar.
+      </h1>
 
-        <div class="wbc-event-container"
-          ng-repeat="n in [20,21,22,23,24,25,26,27,28]" >
-          <div class="wbc-grid-backdrop">
-            <div class="wbc-grid-column" event-start-hour="7"></div>
-            <div class="wbc-grid-column" event-start-hour="8"></div>
-            <div class="wbc-grid-column" event-start-hour="9"></div>
-            <div class="wbc-grid-column" event-start-hour="10"></div>
-            <div class="wbc-grid-column" event-start-hour="11"></div>
-            <div class="wbc-grid-column" event-start-hour="12"></div>
-            <div class="wbc-grid-column" event-start-hour="13"></div>
-            <div class="wbc-grid-column" event-start-hour="14"></div>
-            <div class="wbc-grid-column" event-start-hour="15"></div>
-            <div class="wbc-grid-column" event-start-hour="16"></div>
-            <div class="wbc-grid-column" event-start-hour="17"></div>
-            <div class="wbc-grid-column" event-start-hour="18"></div>
-            <div class="wbc-grid-column" event-start-hour="19"></div>
-            <div class="wbc-grid-column" event-start-hour="20"></div>
-            <div class="wbc-grid-column" event-start-hour="21"></div>
-            <div class="wbc-grid-column" event-start-hour="22"></div>
-            <div class="wbc-grid-column" event-start-hour="23"></div>
-            <div class="wbc-grid-column" event-start-hour="0"></div>
-            <div class="wbc-grid-column" event-start-hour="1"></div>
-            <div class="wbc-grid-column" event-start-hour="2"></div>
-            <div class="wbc-grid-column" event-start-hour="3"></div>
-          </div>
-          <div
-            ng-if="gc.getEventsForDay(n).length>0"
-            class="row-container"
-            style="height:{{gc.layout?30*(gc.getRowsForDay(n)+1)+'px':30*(gc.getEventsForDay(n).length)+'px'}};page-break-after: always;">
+      <div class="wbc-event-container" ng-repeat="n in [20,21,22,23,24,25,26,27,28]">
+        <div class="wbc-grid-backdrop">
+          <div class="wbc-grid-column" event-start-hour="7"></div>
+          <div class="wbc-grid-column" event-start-hour="8"></div>
+          <div class="wbc-grid-column" event-start-hour="9"></div>
+          <div class="wbc-grid-column" event-start-hour="10"></div>
+          <div class="wbc-grid-column" event-start-hour="11"></div>
+          <div class="wbc-grid-column" event-start-hour="12"></div>
+          <div class="wbc-grid-column" event-start-hour="13"></div>
+          <div class="wbc-grid-column" event-start-hour="14"></div>
+          <div class="wbc-grid-column" event-start-hour="15"></div>
+          <div class="wbc-grid-column" event-start-hour="16"></div>
+          <div class="wbc-grid-column" event-start-hour="17"></div>
+          <div class="wbc-grid-column" event-start-hour="18"></div>
+          <div class="wbc-grid-column" event-start-hour="19"></div>
+          <div class="wbc-grid-column" event-start-hour="20"></div>
+          <div class="wbc-grid-column" event-start-hour="21"></div>
+          <div class="wbc-grid-column" event-start-hour="22"></div>
+          <div class="wbc-grid-column" event-start-hour="23"></div>
+          <div class="wbc-grid-column" event-start-hour="0"></div>
+          <div class="wbc-grid-column" event-start-hour="1"></div>
+          <div class="wbc-grid-column" event-start-hour="2"></div>
+          <div class="wbc-grid-column" event-start-hour="3"></div>
+        </div>
+        <div ng-if="gc.getEventsForDay(n).length>0" class="row-container"
+          style="height:{{gc.layout?30*(gc.getRowsForDay(n)+1)+'px':30*(gc.getEventsForDay(n).length)+'px'}};page-break-after: always;">
           <a id="July {{n}}"></a>
           <h1 ng-if="gc.getEventsForDay(n).length>0">July {{n}} - {{gc.getDayOfWeek(n)}}</h1>
-          <div class="wbc-event-bar"
-          ng-repeat="event in gc.getEventsForDay(n)"
-          style="top:-{{(event.expandedRow-event.condensedRow)*30*gc.layout}}px"
-          event-start-minute="{{event.startDate.minute}}"
-          event-start-hour="{{event.startDate.hour}}"
-          event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}"
-          event-duration="{{event.duration}}"
-          event-class="{{event.class}}"
-          event-format="{{event.format}}"
-          event-location="{{event.location}}"
-          event-description="{{event.summary}}"
-          event-is-game="{{gc.isGame(event)}}"
-          event-is-junior="{{gc.isJunior(event)}}"
-          event-is-demo="{{gc.isDemo(event)}}"
-          event-final="{{event.summary}}"
-          event-round="{{gc.extractRoundFromDescription(event.summary)}}"
-          event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
-          event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
-          ng-mouseup="gc.focusOnEvent($event,event)"
-          >
+          <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
+            style="top:-{{(event.expandedRow-event.condensedRow)*30*gc.layout}}px"
+            event-start-minute="{{event.startDate.minute}}" event-start-hour="{{event.startDate.hour}}"
+            event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}" event-duration="{{event.duration}}"
+            event-class="{{event.class}}" event-format="{{event.format}}" event-location="{{event.location}}"
+            event-description="{{event.summary}}" event-is-game="{{gc.isGame(event)}}"
+            event-is-junior="{{gc.isJunior(event)}}" event-is-demo="{{gc.isDemo(event)}}"
+            event-final="{{event.summary}}" event-round="{{gc.extractRoundFromDescription(event.summary)}}"
+            event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
+            event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
+            ng-mouseup="gc.focusOnEvent($event,event)">
             <p><b>{{gc.summarize(event)}}</b></p>
           </div>
-          </div>
         </div>
+      </div>
 
-        <div style="height:100px"></div>
+      <div style="height:100px"></div>
 
-      </md-content>
+    </md-content>
   </div>
 
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
-    <script type="text/javascript" src="./bower_components/ical.js/build/ical.js"></script>
-    <script type="text/javascript" src="./assets/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="./assets/iv-viewer.min.js"></script>
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-animate/angular-animate.js"></script>
+  <script src="./bower_components/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+  <script type="text/javascript" src="./bower_components/ical.js/build/ical.js"></script>
+  <script type="text/javascript" src="./assets/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="./assets/iv-viewer.min.js"></script>
 
-    <script src="./src/games/Games.js"></script>
-    <script src="./src/games/GameController.js"></script>
-    <script src="./src/games/GameService.js"></script>
+  <script src="./src/games/Games.js"></script>
+  <script src="./src/games/GameController.js"></script>
+  <script src="./src/games/GameService.js"></script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
 
-          angular
-              .module('starterApp', ['ngMaterial', 'games'])
-              .config(function($mdThemingProvider, $mdIconProvider){
+    angular
+      .module('starterApp', ['ngMaterial', 'games'])
+      .config(function ($mdThemingProvider, $mdIconProvider) {
 
-                $mdIconProvider
-                    .defaultIconSet("./assets/svg/avatars.svg", 128)
-                    .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-                    .icon("share"      , "./assets/svg/share.svg"       , 24)
-                    .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-                    .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-                    .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                    .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+        $mdIconProvider
+          .defaultIconSet("./assets/svg/avatars.svg", 128)
+          .icon("menu", "./assets/svg/menu.svg", 24)
+          .icon("share", "./assets/svg/share.svg", 24)
+          .icon("google_plus", "./assets/svg/google_plus.svg", 512)
+          .icon("hangouts", "./assets/svg/hangouts.svg", 512)
+          .icon("twitter", "./assets/svg/twitter.svg", 512)
+          .icon("phone", "./assets/svg/phone.svg", 512);
 
-                  $mdThemingProvider.theme('default')
-                      .primaryPalette('brown')
-                      .accentPalette('red');
+        $mdThemingProvider.theme('default')
+          .primaryPalette('brown')
+          .accentPalette('red');
 
-              });
+      });
 
-    </script>
+  </script>
 
-  </body>
+</body>
+
 </html>
