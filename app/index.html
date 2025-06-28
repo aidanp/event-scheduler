@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20250608" lang="en">
+<html manifest="site.manifest?20250628" lang="en">
 <html lang="en">
 
 <head>
@@ -34,15 +34,15 @@
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <h1>Events</h1>
       <span flex></span>
-      <md-button ng-if="gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-click="gc.selectAll()"
+      <md-button ng-if="gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-mousedown="gc.selectAll()"
         aria-label="Select All">
         <md-icon class="material-icons">select_all</md-icon>
       </md-button>
       <md-button ng-if="gc.selectedList.length>0 && gc.selectedList.length < gc.gameCount" class="toolbar-right"
-        ng-click="gc.clearList()" aria-label="Clear">
+        ng-mousedown="gc.clearList()" aria-label="Clear">
         <md-icon class="material-icons">backspace</md-icon>
       </md-button>
-      <md-button ng-if="gc.reservedList.length>0" class="toolbar-right" ng-click="gc.undo()" aria-label="Undo">
+      <md-button ng-if="gc.reservedList.length>0" class="toolbar-right" ng-mousedown="gc.undo()" aria-label="Undo">
         Undo
       </md-button>
 
@@ -50,7 +50,7 @@
 
     <md-content flex>
       <md-list>
-        <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-click="gc.toggleGame(it)"
+        <md-list-item ng-repeat="it in gc.games" md-no-ink="true" ng-mousedown="gc.toggleGame(it)"
           ng-class="{'selected' : gc.isSelected(it) }">
           <!--<md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>-->
           {{it.id}}<span ng-if="it.summary" style="white-space:nowrap">: {{it.summary}}</span>
@@ -63,20 +63,20 @@
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
     <md-toolbar ng-if="!gc.focusedGame" layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="gc.toggleList()" aria-label="Show User List">
+      <md-button class="menu" hide-gt-sm ng-mousedown="gc.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu"></md-icon>
       </md-button>
       <h1>WBC 2025</h1>
       <span flex></span>
       <!--
-      <md-button class="toolbar-right" ng-click="gc.exportCalendar()" aria-label="Export">
+      <md-button class="toolbar-right" ng-mousedown="gc.exportCalendar()" aria-label="Export">
         <md-icon>event</md-icon>
       </md-button>
  -->
-      <md-button class="toolbar-right" ng-click="gc.showMap($event)" aria-label="Map">
+      <md-button class="toolbar-right" ng-mousedown="gc.showMap($event)" aria-label="Map">
         <md-icon>map</md-icon>
       </md-button>
-      <md-button class="toolbar-right" ng-click="gc.toggleCompact()" aria-label="Layout">
+      <md-button class="toolbar-right" ng-mousedown="gc.toggleCompact()" aria-label="Layout">
         <md-icon>view_compact</md-icon>
       </md-button>
       <md-button print-div=".wbc-content" class="toolbar-right" aria-label="Print">
@@ -85,12 +85,12 @@
     </md-toolbar>
 
     <md-toolbar ng-if="gc.focusedGame" layout="row" class="md-whiteframe-z1">
-      <md-button class="toolbar-right" ng-click="gc.focusedGame = null" aria-label="Back">
+      <md-button class="toolbar-right" ng-mousedown="gc.focusedGame = null" aria-label="Back">
         <md-icon>arrow_back</md-icon>
       </md-button>
       <h1>{{gc.allGames[gc.focusedGame].summary}}</h1>
       <span flex></span>
-      <md-button class="toolbar-right" ng-click="gc.openEvent($event,gc.focusedGame)" aria-label="Open">
+      <md-button class="toolbar-right" ng-mousedown="gc.openEvent($event,gc.focusedGame)" aria-label="Open">
         <md-icon>open_in_new</md-icon>
       </md-button>
     </md-toolbar>
@@ -101,7 +101,7 @@
 
       <!-- <md-icon md-svg-icon="{{gc.selected.avatar}}" class="avatar"></md-icon> -->
 
-      <!-- <md-button class="contact" md-no-ink ng-click="gc.showContactOptions($event)" aria-label="Contact User">
+      <!-- <md-button class="contact" md-no-ink ng-mousedown="gc.showContactOptions($event)" aria-label="Contact User">
           <md-tooltip>Contact {{ gc.selected.name }}</md-tooltip>
           <md-icon md-svg-icon="share"></md-icon>
         </md-button> -->
