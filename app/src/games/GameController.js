@@ -119,7 +119,7 @@
      * Select the current avatars
      * @param menuId
      */
-    function toggleGame(game) {
+    function toggleGame(event, game) {
       //self.selected = angular.isNumber(game) ? $scope.games[game] : game;
       //self.toggleList();
       suppressAnimation();
