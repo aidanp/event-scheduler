@@ -60,7 +60,7 @@ md-sidenav.md-locked-open {
 /* Primary content area */
 
 #content {
-  /*overflow: hidden;*/
+  overflow-x: hidden;
 }
 
 #content {
