@@ -158,17 +158,17 @@
         if (round.indexOf('demo') != -1) {
           return 0;
         }
-        if (round === 'qf') {
+        if (round === 'qf' || round === 'quarterfinal') {
           return 9;
         }
-        if (round === 'sf') {
+        if (round === 'sf' || round === 'semifinal') {
           return 10;
-        }
-        if (round === 'sf/f' || round === 'qf/sf/f') {
-          return 11;
         }
         if (round === 'f' || round === 'final') {
           return 12;
+        }
+        if (round.includes('final')) {
+          return 11; // any other kind of final
         }
         if (round.charAt(0) == 'r' && round.length > 1) {
           return round.charAt(1);
@@ -220,7 +220,7 @@
     }
 
     function openEvent($event, code) {
-      window.open('http://www.boardgamers.org/wbc24/previews/' + code + '.html');
+      window.open('http://www.boardgamers.org/wbc25/previews/' + code + '.html');
     }
 
     function selectAll() {
