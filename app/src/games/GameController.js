@@ -122,6 +122,7 @@
     function toggleGame(event, game) {
       //self.selected = angular.isNumber(game) ? $scope.games[game] : game;
       //self.toggleList();
+      self.focusedGame = null;
       suppressAnimation();
 
       var i;
@@ -241,6 +242,7 @@
     }
 
     function undo() {
+      suppressAnimation();
       self.selectedList = self.reservedList;
       self.reservedList = [];
       writeSelected();
@@ -251,10 +253,10 @@
     }
 
     /**
-     * Returns true if the specified game is in the selected list.
+     * Returns true if the specified game is in the selected list or if
      */
     function isSelected(game) {
-      return (game ? self.selectedList.indexOf(game.id) !== - 1 : false);
+      return game ? self.selectedList.indexOf(game.id) !== - 1 : false;
     }
 
     /**
@@ -345,6 +347,9 @@
       var game, event;
       var result = [];
       var selected = self.selectedList;
+      if (selected.length === 0) {
+        selected = Object.keys(self.allGames);
+      }
       if (self.focusedGame) {
         selected = [self.focusedGame];
       }

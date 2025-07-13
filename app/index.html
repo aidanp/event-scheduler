@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20250633" lang="en">
+<html manifest="site.manifest?20250713" lang="en">
 <html lang="en">
 
 <head>
@@ -32,15 +32,11 @@
     md-swipe-left="gc.onSwipeLeft()" md-is-locked-open="$mdMedia('gt-xs')">
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
-      <h1>Events</h1>
+      <h1>Filter</h1>
       <span flex></span>
-      <md-button ng-if="gc.selectedList.length < gc.gameCount" class="toolbar-right" ng-mousedown="gc.selectAll()"
-        aria-label="Select All">
-        <md-icon class="material-icons">select_all</md-icon>
-      </md-button>
       <md-button ng-if="gc.selectedList.length>0 && gc.selectedList.length < gc.gameCount" class="toolbar-right"
         ng-mousedown="gc.clearList()" aria-label="Clear">
-        <md-icon class="material-icons">backspace</md-icon>
+        Reset
       </md-button>
       <md-button ng-if="gc.reservedList.length>0" class="toolbar-right" ng-mousedown="gc.undo()" aria-label="Undo">
         Undo
@@ -106,8 +102,8 @@
           <md-icon md-svg-icon="share"></md-icon>
         </md-button> -->
 
-      <h1 ng-if="gc.selectedList.length==0" class="empty-content">Please select one or more events from the sidebar.
-      </h1>
+      <!-- <h1 ng-if="gc.selectedList.length==0" class="empty-content">Please select one or more events from the sidebar.
+      </h1> -->
 
       <div class="wbc-event-container" ng-repeat="n in [26,27,28,29,30,31,1,2,3]">
         <div class="wbc-grid-backdrop">
