@@ -109,6 +109,12 @@
                 // split title from round
                 index = item.event.lastIndexOf('Demo');
                 if (index === -1) {
+                  index = item.event.lastIndexOf('Heat');
+                }
+                if (index === -1) {
+                  index = item.event.lastIndexOf('Round');
+                }
+                if (index === -1) {
                   index = item.event.lastIndexOf(' ');
                 }
                 if (index !== -1) {

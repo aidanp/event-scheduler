@@ -283,10 +283,12 @@
     }
 
     /**
-     * Returns true if the specified event is a juniors event.
+     * Returns true if the specified event is a demo event.
      */
     function isDemo(event) {
-      return (event.code === 'DEMO'
+      return (
+        event.round === 0
+        || event.code === 'DEMO'
         || event.code === 'MEET'
         || demoregex.test(event.event));
     }
