@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20250713" lang="en">
+<html manifest="site.manifest?20250714" lang="en">
 <html lang="en">
 
 <head>
@@ -131,21 +131,22 @@
         </div>
         <div ng-if="gc.getEventsForDay(n).length>0" class="row-container"
           style="height:{{gc.layout?30*(gc.getRowsForDay(n)+1)+'px':30*(gc.getEventsForDay(n).length)+'px'}};page-break-after: always;">
-          <a id="July {{n}}"></a>
-          <h1 ng-if="gc.getEventsForDay(n).length>0">July {{n}} - {{gc.getDayOfWeek(n)}}</h1>
-          <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
-            style="top:-{{(event.expandedRow-event.condensedRow)*30*gc.layout}}px"
-            event-start-minute="{{event.startDate.minute}}" event-start-hour="{{event.startDate.hour}}"
-            event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}" event-duration="{{event.duration}}"
-            event-class="{{event.class}}" event-format="{{event.format}}" event-location="{{event.location}}"
-            event-description="{{event.summary}}" event-is-game="{{gc.isGame(event)}}"
-            event-is-junior="{{gc.isJunior(event)}}" event-is-demo="{{gc.isDemo(event)}}"
-            event-final="{{event.summary}}" event-round="{{gc.extractRoundFromDescription(event.summary)}}"
-            event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
-            event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
-            ng-mouseup="gc.focusOnEvent($event,event)">
-            <p><b>{{gc.summarize(event)}}</b></p>
-          </div>
+          <a id="{{n < 10 ? 'August' : 'July'}} {{n}}"></a>
+          <h1 ng-if="gc.getEventsForDay(n).length>0">{{n < 10 ? 'August' : 'July' }}q {{n}} -
+              {{gc.getDayOfWeek(n)}}</h1>
+              <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
+                style="top:-{{(event.expandedRow-event.condensedRow)*30*gc.layout}}px"
+                event-start-minute="{{event.startDate.minute}}" event-start-hour="{{event.startDate.hour}}"
+                event-start-hour-ampm="{{gc.getAmPm(event.startDate.hour)}}" event-duration="{{event.duration}}"
+                event-class="{{event.class}}" event-format="{{event.format}}" event-location="{{event.location}}"
+                event-description="{{event.summary}}" event-is-game="{{gc.isGame(event)}}"
+                event-is-junior="{{gc.isJunior(event)}}" event-is-demo="{{gc.isDemo(event)}}"
+                event-final="{{event.summary}}" event-round="{{gc.extractRoundFromDescription(event.summary)}}"
+                event-round-number="{{gc.extractRoundNumberFromRound(gc.extractRoundFromDescription(event.summary))}}"
+                event-duration-last-30="{{event.duration}} {{event.endDate.hour}}"
+                ng-mouseup="gc.focusOnEvent($event,event)">
+                <p><b>{{gc.summarize(event)}}</b></p>
+              </div>
         </div>
       </div>
 
