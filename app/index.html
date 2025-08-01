@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="site.manifest?20250714" lang="en">
+<html manifest="site.manifest?20250715" lang="en">
 <html lang="en">
 
 <head>
@@ -132,8 +132,7 @@
         <div ng-if="gc.getEventsForDay(n).length>0" class="row-container"
           style="height:{{gc.layout?30*(gc.getRowsForDay(n)+1)+'px':30*(gc.getEventsForDay(n).length)+'px'}};page-break-after: always;">
           <a id="{{n < 10 ? 'August' : 'July'}} {{n}}"></a>
-          <h1 ng-if="gc.getEventsForDay(n).length>0">{{n < 10 ? 'August' : 'July' }}q {{n}} -
-              {{gc.getDayOfWeek(n)}}</h1>
+          <h1 ng-if="gc.getEventsForDay(n).length>0">{{n < 10 ? 'August' : 'July' }} {{n}} - {{gc.getDayOfWeek(n)}}</h1>
               <div class="wbc-event-bar" ng-repeat="event in gc.getEventsForDay(n)"
                 style="top:-{{(event.expandedRow-event.condensedRow)*30*gc.layout}}px"
                 event-start-minute="{{event.startDate.minute}}" event-start-hour="{{event.startDate.hour}}"
