@@ -93,7 +93,7 @@
     return {
       loadFromJson: function () {
         return $q(function (resolve, reject) {
-          $http.get('assets/2025.json').
+          $http.get('assets/2026.json').
             then(function (response) {
               var item;
               var index;

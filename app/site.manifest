@@ -1,11 +1,12 @@
 CACHE MANIFEST
 # This is a comment.
-# Cache manifest version 3.0.2
+# Cache manifest version 3.0.3
 # If you change the version number in this comment,
 # the cache manifest is no longer byte-for-byte
 # identical.
 
 index.html
+assets/2026.json
 assets/2025.json
 assets/2024.json
 assets/app.css
