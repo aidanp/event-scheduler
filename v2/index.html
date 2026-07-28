@@ -3,7 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- viewport-fit=cover: without it, env(safe-area-inset-*) below always
+       resolves to 0 — the page just gets letterboxed instead of drawing
+       under the notch/home-indicator, so there'd be nothing for those
+       env() values to compensate for. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-touch-fullscreen" content="yes" />
@@ -14,8 +18,8 @@
   <link rel="apple-touch-icon" sizes="152x152" href="/event-scheduler/v2/assets/icons/Icon-76@2x.png" />
   <title>WBC Event Scheduler</title>
   <script src="https://accounts.google.com/gsi/client" async></script>
-  <script type="module" crossorigin src="/event-scheduler/v2/assets/index-4P2kfCJB.js"></script>
-  <link rel="stylesheet" crossorigin href="/event-scheduler/v2/assets/index-Byek9C_K.css">
+  <script type="module" crossorigin src="/event-scheduler/v2/assets/index-7Ov-RcM2.js"></script>
+  <link rel="stylesheet" crossorigin href="/event-scheduler/v2/assets/index-BKt0dOO6.css">
 <link rel="manifest" href="/event-scheduler/v2/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/event-scheduler/v2/registerSW.js"></script></head>
 
 <body>
